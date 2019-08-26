@@ -1,0 +1,9 @@
+body {
+  background: skyblue;
+}
+
+@media (max-width: 764px) {
+  body {
+    background: green;
+  }
+}
