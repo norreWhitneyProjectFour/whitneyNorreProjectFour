@@ -1,9 +1,6 @@
-@import "queries";
-
-body {
-	background: skyblue;
-
-	@include mq-tablet {
-		background: green;
+.hover {
+	background: green;
+	&:hover {
+		background: tomato;
 	}
 }
