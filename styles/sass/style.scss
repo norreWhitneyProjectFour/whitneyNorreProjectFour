@@ -1,6 +1,23 @@
-.hover {
-	background: green;
-	&:hover {
-		background: tomato;
+@import 'setup';
+
+html {
+	font-size: 125%;
+}
+
+body {
+	font-size: 1rem;
+}
+
+p {
+	color: red;
+}
+.dispalyEvents {
+	display: flex;
+	flex-direction: row;
+	div {
+		width: calc((100% / 3) - 50px);
 	}
+}
+footer {
+	margin: 5%;
 }
