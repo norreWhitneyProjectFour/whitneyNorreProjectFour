@@ -1,9 +1,16 @@
-@import "queries";
+@import 'setup';
+
+html {
+	font-size: 125%;
+}
 
 body {
-	background: skyblue;
+	font-size: 1rem;
+}
 
-	@include mq-tablet {
-		background: green;
-	}
+p {
+	color: red;
+}
+footer {
+	margin: 5%;
 }
