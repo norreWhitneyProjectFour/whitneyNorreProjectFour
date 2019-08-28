@@ -12,6 +12,7 @@ eventsApp.date = "2019-08-29T23:00:00Z";
 eventsApp.getEvents = (date) => {
 
   //store an AJAX request in a variable called eventsApp.getEvents, we are storing a promise in a variable:
+  //if event is happening display events (success), if no events happening use error to display "no events happening 
   $.ajax({
     type: "GET",
     url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=KA2M6AWn63bg3pVc9OkXqcDPqV2x2Dbc&city=toronto&startDateTime=2019-08-29T00:00:00Z&endDateTime=${date}`,
@@ -34,7 +35,7 @@ $(document).ready(function () {
 });
 
 //store the API data in an array
-//if event is happening display events using, if no events happening use .fail() to display "no events happening today"
+today"
 
 
 //display values of the array name, venue, image, ticket purchase url
