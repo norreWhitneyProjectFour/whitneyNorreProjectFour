@@ -7,23 +7,14 @@ eventsApp.url = "https://app.ticketmaster.com/discovery/v2/events";
 
 eventsApp.apiKey = "ftYfSGG92vqF6hHoXIE25YwqEXwj0jhe";
 
-eventsApp.getEvents = () => {
-  // $.ajax({
-  //   url: eventsApp.url,
-  //   method: 'GET',
-  //   datatype: 'json',
-  //   data: {
-  //     key: eventsApp.apiKey,
-  //     city: 'Toronto',
-  //     startDateTime: '2019-09-13'
-  //   }
-  // }).then((res) => {
-  //   console.log("IT WORKED!");
-  // })
+eventsApp.date = "2019-08-29T23:00:00Z";
 
+eventsApp.getEvents = (date) => {
+
+  //store an AJAX request in a variable called eventsApp.getEvents, we are storing a promise in a variable:
   $.ajax({
     type: "GET",
-    url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=KA2M6AWn63bg3pVc9OkXqcDPqV2x2Dbc&city=toronto&startDateTime=2019-08-29T00:00:00Z&endDateTime=2019-08-29T23:00:00Z",
+    url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=KA2M6AWn63bg3pVc9OkXqcDPqV2x2Dbc&city=toronto&startDateTime=2019-08-29T00:00:00Z&endDateTime=${date}`,
     async: true,
     dataType: "json",
     success: function (res) {
@@ -37,9 +28,9 @@ eventsApp.getEvents = () => {
   });
 }
 
-//create document ready
+// wait for the document to be ready
 $(document).ready(function () {
-  eventsApp.getEvents();
+  eventsApp.getEvents(eventsApp.date);
 });
 
 //store the API data in an array
