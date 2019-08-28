@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scope</title>
+</head>
+
+<body>
+  <script>
+
+    //EXAMPLE 1
+    // console.log(this);
+
+    // function someDeclaredFunction() {
+    //   console.log("Declared", this);
+    // };
+    // someDeclaredFunction();
+
+    //  const someDeclaredFunction = function() {
+    //     console.log("Declared", this);
+    //   };
+    //   someDeclaredFunction();
+
+
+    // let character = {
+    //   firstName: 'Whitney',
+    //   introduction: function () {
+    //     // console.log(this);
+    //     return `Hello, my name is ${this.firstName}`
+    //   }
+    // }
+
+    // console.log("character.introduction()", character.introduction());
+    // let intro = character.introduction;
+
+
+    // console.log("intro()", intro());
+
+    // app = {
+
+    //   title: 'My awesome app',
+    //   setTitle: function (afterStartupCallback) {
+    //     console.log(this);
+    //     console.log(`The title is ${this.title}`);
+    //   },
+
+    //   startUp: function (afterStartupCallback) {
+    //     //starts up some code...
+    //     //..snip...
+    //   }
+    // }
+
+    // app.startUp(app.setTitle);
+
+    // console.log(character.introduction());
+
+
+    //EXAMPLE 2
+
+    // let fourSidedDie = {
+    //   numbers: [1, 2, 3, 4],
+    //   roll: function () {
+    //     console.log(this);
+    //     // Object { numbers: [] ... } if called as `fourSidedDie.roll()`, `Window` otherwise
+
+    //     let possibleNumbers = this.numbers;
+    //     let newRandomNumber = () => {
+    //       console.log(this);
+    //       console.log(this.numbers);
+    //       console.log(possibleNumbers); // [1,2,3,4]
+
+    //       return possibleNumbers[
+    //         Math.floor(Math.random() * possibleNumbers.length)
+    //       ];
+    //     };
+
+    //     return newRandomNumber();
+    //   }
+    // };
+
+    // fourSidedDie.roll();
+
+    //EXAMPLE 3
+
+    // let song = {
+    //     artist: "Carly Rae Jepsen",
+    //     title: "Call Me Maybe",
+
+    //     artistAndTitle: () => {
+    //       return `${this.artist} - ${this.title}`;
+    //     }
+    //   };
+    //   console.log(song.artistAndTitle());
+
+
+    function add(a, b) {
+      return a + b;
+    }
+
+  </script>
+</body>
+
+</html>
