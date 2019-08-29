@@ -72,20 +72,28 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
     crossorigin="anonymous"></script>
+  <script src='https://code.jquery.com/jquery-3.2.1.min.js'
+    integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
+  <script src="js/script.js"></script>
   <script src="responsive-nao-calendar/jquery-pseudo-ripple.js"></script>
   <script src="responsive-nao-calendar/jquery-nao-calendar.js"></script>
   <!-- <script>
-    $('.myCalendar').calendar({
-      date: new Date(),
-      autoSelect: false, // false by default
-      select: function (date) {
-        console.log('SELECT', date)
-      },
-      toggle: function (y, m) {
-        console.log('TOGGLE', y, m)
-      }
-    })
-  </script> -->
+    // $('.myCalendar').calendar({
+    //   date: new Date(),
+    //   autoSelect: false, // false by default
+    //   select: function (date) {
+    //     console.log('SELECT', date)
+    //     const formatDate = new Date(date);
+    //     const dateString = new Date(formatDate.getTime() - (formatDate.getTimezoneOffset() * 60000))
+    //       .toISOString()
+    //       .split("T")[0];
+    //     console.log("Format date", dateString);
+    //   },
+    //   toggle: function (y, m) {
+    //     console.log('TOGGLE', y, m)
+    //   }
+    // })
+  </script>
   <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -99,16 +107,18 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
-    $('.myCalendar').calendar({
-      select: function (date) {
-        console.log('SELECT', date)
-      }
-    });
+    // $('.myCalendar').calendar({
+    //   select: function (date) {
+    //     const formatDate = new Date(date);
+    //     const dateString = new Date(formatDate.getTime() - (formatDate.getTimezoneOffset() * 60000))
+    //       .toISOString()
+    //       .split("T")[0];
+    //     console.log("Format date", dateString);
+    //   }
+    // });
 
-  </script>
-  <script src='https://code.jquery.com/jquery-3.2.1.min.js'
-    integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
-  <script src="js/script.js"></script>
+  </script> -->
+  
 
 </body>
 
