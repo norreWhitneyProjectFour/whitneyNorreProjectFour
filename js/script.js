@@ -35,11 +35,6 @@ eventsApp.userPickDate = '',
     $('select').on('change', function () {
       eventsApp.userPickCity = $('select').val();
     });
-    //Gets value of selected date
-    // $('input').on('change', function () {
-    //   eventsApp.userPickDate = $('input').val();
-    //   eventsApp.getEvents(eventsApp.userPickCity, eventsApp.userPickDate);
-    // });
 
   }
 eventsApp.displayEvents = (result) => {
@@ -56,13 +51,6 @@ eventsApp.displayEvents = (result) => {
 
   }
 
-}
-//Function to display info on hovered text
-eventsApp.hoverInfo = () => {
-  $('.hover').on('mouseover', function () {
-    const hover = $('.hover').text();
-    console.log(hover);
-  })
 }
 
 eventsApp.calendar = () => {
@@ -87,13 +75,13 @@ eventsApp.calendar = () => {
 //create document ready
 $(document).ready(function () {
   eventsApp.getUserPickCity();
-  eventsApp.hoverInfo();
   eventsApp.calendar();
 
 });
 
 
 //store the API data in an array
+//if event is happening display events using, if no events happening use .fail() to display "no events happening today"
 
 
 //display values of the array name, venue, image, ticket purchase url
