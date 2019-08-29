@@ -43,7 +43,15 @@
 .nao-month .month-head div {
 	text-align: center;
 	height: 16px;
-	line-height: 16px
+  line-height: 16px;
+  font-size: 1.2rem;
+  padding: 3% 0;
+  text-transform: uppercase;
+}
+
+.nao-month th:first-child,
+.nao-month th:last-child{
+  color: #f6416c;
 }
 
 .nao-month .month-head button {
@@ -60,7 +68,7 @@
 	width: 100%;
 	transform: none;
 	filter: none;
-	opacity: 1;
+  opacity: 1;
 	transition: transform .5s ease, opacity .5s ease;
 }
 
@@ -98,7 +106,7 @@
 .nao-month th,
 .nao-month td {
 	text-align: center;
-	padding: 4px 1px;
+	padding: 25px 1px;
 	width: 40px;
 	text-transform: uppercase
 }
@@ -106,7 +114,8 @@
 .nao-month td {
 	cursor: pointer;
 	border-radius: 3px;
-	box-shadow: 0 0 0 2px transparent inset;
+  box-shadow: 0 0 0 2px transparent inset;
+  font-size: 0.9rem;
 }
 
 .nao-month td.ripple {
@@ -114,13 +123,13 @@
 }
 
 .nao-month td.today {
-	box-shadow: 0 0 0 2px #fa0 inset;
+	box-shadow: 0 0 0 2px #00b8a9 inset;
 	overflow: hidden
 }
 
 .nao-month td.active {
 	transition: box-shadow .3s ease .5s;
-	box-shadow: 0 0 0 2px #0af inset
+	box-shadow: 0 0 0 2px #f6416c inset
 }
 
 .nao-month td:empty {
