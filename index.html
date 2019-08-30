@@ -2,11 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Norre & Whitney | Project Four</title>
   <link rel="stylesheet" href="styles/style.css">
+  <link rel='stylesheet' id='fontawesome-css' href='https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1'
+    type='text/css' media='all' />
   <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="responsive-nao-calendar/aicon/style.css">
   <link rel="stylesheet" href="responsive-nao-calendar/css/jquery-pseudo-ripple.css">
@@ -16,13 +18,56 @@
 <body>
   <div class="wrapperContainer">
 
-    <!-- HEADER STARTS HERE -->
-    <header class="mainHeader">
-      <div class="headerContents">
+    <div class="wrapperContainer">
+
+      <!-- HEADER STARTS HERE -->
+      <header class="mainHeader">
+        <div class="headerContents">
+          <h1>what's happening in toronto?</h1>
+          <p>Pick a Date, Get an Event</p>
+        </div>
+        <div class="pickDate">
+          <div class="dropDownContainer">
+            <!-- SELECT CITY DROP DOWN -->
+            <div class="dropdownCity">
+              <button class="dropbtn1">Select City</button>
+              <div class="dropdownCityContent">
+                <a href="#">Toronto</a>
+                <a href="#">Montreal</a>
+                <a href="#">Vancouver</a>
+                <a href="#">Calgary</a>
+              </div>
+            </div>
+            <!-- SELECT CITY DROP DOWN -->
+            <div class="dropdownCity">
+              <button class="dropbtn1">Select Events</button>
+              <div class="dropdownCityContent">
+                <a href="#">Music</a>
+                <a href="#">Sporting</a>
+                <a href="#">Arts & Theatre</a>
+                <a href="#">Film</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="jquery-script-clear"></div>
+        <div class="calendarContainer">
+          <div class="container">
+            <div class="myCalendar"></div>
+          </div>
+        </div>
+
+      </header>
+
+
+      <!-- HEADER STARTS HERE -->
+      <!-- <header class="mainHeader"> -->
+      <!-- <div class="headerContents">
         <h1>what's happening in toronto?</h1>
         <div class="pickDate">
           <p>Pick a Date, Get an Event</p>
-          <!-- SELECT CITY DROP DOWN -->
+          SELECT CITY DROP DOWN
           <select id="chooseYourCity">
             <option value="Toronto">Toronto, CA</option>
             <option value="New York">New York, US</option>
@@ -32,41 +77,68 @@
             <option value="London">London, GB</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
-      <div class="jquery-script-clear"></div>
-      <div class="calendarContainer">
-        <div class="container">
-          <div class="myCalendar"></div>
+      <!-- <div class="dropDownWrapper">
+        <div class="dropDownContainer">
+          SELECT CITY DROP DOWN
+          <div class="dropdownCity">
+            <button class="dropbtn1">Select City</button>
+            <div class="dropdownCityContent">
+              <a href="#">Toronto</a>
+              <a href="#">Montreal</a>
+              <a href="#">Vancouver</a>
+              <a href="#">Calgary</a>
+            </div>
+          </div>
+
+          SELECT CITY DROP DOWN
+          <div class="dropdownEvent">
+            <button class="dropbtn2">Select Events</button>
+            <div class="dropdownEventContent">
+              <a href="#">Music Events</a>
+              <a href="#">Sporting Events</a>
+              <a href="#">Art & Theatre</a>
+              <a href="#">Film</a>
+            </div>
+          </div>
         </div>
-      </div>
+      </div> -->
+      <!-- </div> -->
 
-    </header>
+      <!-- <div class="jquery-script-clear"></div>
+  <div class="calendarContainer">
+    <div class="container">
+      <div class="myCalendar"></div>
+    </div>
+  </div>
+  </header> -->
 
-    <!-- MAIN STARTS HERE -->
-    <main>
-      <!-- Dynamic content goes here -->
+      <!-- MAIN STARTS HERE -->
+      <main>
 
 
-      <!-- Section to display events -->
-      <section class="displayEvents"></section>
+        <!-- Section to display events -->
+        <section class="displayEvents">
+          <!-- Dynamic content goes here -->
+        </section>
 
-    </main>
+      </main>
 
-    <!-- FOOTER STARTS HERE -->
-    <!-- <footer>
+      <!-- FOOTER STARTS HERE -->
+      <!-- <footer>
       <p>Created by Norre & Whitney © 2019 </p>
     </footer> -->
 
-  </div>
-  
-  
-   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
-    crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
-  <script src="responsive-nao-calendar/jquery-pseudo-ripple.js"></script>
-  <script src="responsive-nao-calendar/jquery-nao-calendar.js"></script>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+      crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="responsive-nao-calendar/jquery-pseudo-ripple.js"></script>
+    <script src="responsive-nao-calendar/jquery-nao-calendar.js"></script>
 </body>
 
 </html>

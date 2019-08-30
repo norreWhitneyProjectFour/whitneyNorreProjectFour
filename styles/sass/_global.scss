@@ -4,7 +4,7 @@ html {
 
 body {
   font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -12,11 +12,20 @@ h1 {
   font-weight: 700;
 }
 
+img {
+  width: 100%;
+}
+
 .wrapperContainer {
   max-width: 1680px;
   margin: 0 auto;
   width: 100%;
   // border: 2px solid coral;
+}
+
+.dropDownWrapper {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 //FOOTER STYLES
