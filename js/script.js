@@ -9,12 +9,13 @@ eventsApp.apiKey = "ftYfSGG92vqF6hHoXIE25YwqEXwj0jhe";
 
 eventsApp.userPickDate = '',
   eventsApp.userPickCity = '',
+  eventsApp.userPickEvents = '',
   eventsApp.eventsArray = [],
 
-  eventsApp.getEvents = (city, date) => {
+  eventsApp.getEvents = (stateCode, date, segmentName) => {
     $.ajax({
       type: "GET",
-      url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=KA2M6AWn63bg3pVc9OkXqcDPqV2x2Dbc&city=${city}&startDateTime=${date}T00:00:00Z&endDateTime=${date}T23:00:00Z`,
+      url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=KA2M6AWn63bg3pVc9OkXqcDPqV2x2Dbc&stateCode=${stateCode}&startDateTime=${date}T00:00:00Z&endDateTime=${date}T23:00:00Z&segmentName=${segmentName}`,
       async: true,
       dataType: "json",
 
@@ -32,25 +33,51 @@ eventsApp.userPickDate = '',
   },
   eventsApp.getUserPickCity = () => {
     //Gets the value of selected city
-    $('select').on('change', function () {
-      eventsApp.userPickCity = $('select').val();
+    $('#chooseYourCity').on('change', function () {
+      eventsApp.userPickCity = $('#chooseYourCity').val();
     });
-
+    //Gets the value of selected event
+    $('#chooseYourEvent').on('change', function () {
+      eventsApp.userPickEvents = $('#chooseYourEvent').val();
+    });
   }
+
 eventsApp.displayEvents = (result) => {
   $('.displayEvents').empty();
+  eventsApp.eventsArray = []
+
+  result._embedded.events.forEach(function (events) {
+    eventsApp.eventsArray.push(events);
+  })
   for (let i = 0; i < 3; i++) {
 
-    $('.displayEvents').append(`<div>
-                                    <h2>${result._embedded.events[i].name}</h2>
+    const imageSize = eventsApp.eventsArray[i].images.find(image => image.width === 1024);
+
+    // function getRandonEvents() {
+    //   const randomEvents = Math.floor(Math.random() * eventsApp.eventsArray.length);
+    //   return eventsApp.eventsArray[randomEvents];
+    // }
+
+
+    $('.displayEvents').append(`<div class="displayContents">
+                                  <div class="displayContentsImage">
+                                    <img class="displayContentsImage"src="${result._embedded.events[i].images[0].url} " alt="${result._embedded.events[i].name} "/>
+                                  </div >
+                                  <div class="displayContentsName">
+                                    <h2>${eventsApp.eventsArray[i].name}</h2>
+                                  </div>
+                                  <div class="displayContentsVenue">
                                     <p>${result._embedded.events[i]._embedded.venues[0].name}</p>
+                                  </div>
+                                  <div class="displayContentsTime">
                                     <p>${result._embedded.events[i].dates.start.localTime}</p>
-                                    <img src="${result._embedded.events[i].images[4].url}" alt=""/>
+                                  </div>
+                                  <div class="displayContentsTickets">
                                     <a href="${result._embedded.events[i].url}">get tickets</a>
-                                    </div>`);
+                                  </div>
+                                </div > `);
 
   }
-
 }
 
 eventsApp.calendar = () => {
@@ -65,7 +92,7 @@ eventsApp.calendar = () => {
         .split("T")[0];
       console.log("Format date", dateString);
       eventsApp.userPickDate = dateString;
-      eventsApp.getEvents(eventsApp.userPickCity, eventsApp.userPickDate);
+      eventsApp.getEvents(eventsApp.userPickCity, eventsApp.userPickDate, eventsApp.userPickEvents);
     },
     toggle: function (y, m) {
       console.log('TOGGLE', y, m)
