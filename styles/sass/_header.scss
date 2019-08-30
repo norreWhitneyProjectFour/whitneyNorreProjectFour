@@ -87,6 +87,7 @@
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdownCity:hover .dropbtn1 {
+.dropdownCity:hover .dropbtn1,
+.dropdownEvent:hover .dropbtn2 {
   background-color: #3e8e41;
 }
