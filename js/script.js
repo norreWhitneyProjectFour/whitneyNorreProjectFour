@@ -3,7 +3,7 @@
 eventsApp = {};
 
 //store user input in a variable to make API call
-eventsApp.url = "https://app.ticketmaster.com/discovery/v2/events";
+eventsApp.url = "https://app.ticketmaster.com/discovery/v2/events.json";
 
 eventsApp.apiKey = "ftYfSGG92vqF6hHoXIE25YwqEXwj0jhe";
 
@@ -31,14 +31,17 @@ eventsApp.userPickDate = '',
       }
     });
   },
-  eventsApp.getUserPickCity = () => {
+  eventsApp.getUserInput = () => {
     //Gets the value of selected city
-    $('#chooseYourCity').on('change', function () {
-      eventsApp.userPickCity = $('#chooseYourCity').val();
+    $('.dropdownCityContent').on('click', 'li', function (e) {
+     e.stopPropagation();
+      eventsApp.userPickCity = $(this).text();
+     console.log("city click", eventsApp.userPickCity);
     });
     //Gets the value of selected event
-    $('#chooseYourEvent').on('change', function () {
-      eventsApp.userPickEvents = $('#chooseYourEvent').val();
+  $('.dropdownEventContent li').on('click', function () {
+    eventsApp.userPickEvents = $('.dropdownEventContent li').attr('value');
+    console.log("Events click", eventsApp.userPickEvents);
     });
   }
 
@@ -80,6 +83,42 @@ eventsApp.displayEvents = (result) => {
   }
 }
 
+// eventsApp.groupEvents = (result) => {
+//   $('.displayEvents').empty();
+//   result._embedded.events.forEach(function (events) {
+//     eventsApp.eventsArray.allEvents.push(events);
+//   });
+
+//   function getRandomEvents() {
+//     const randomEvents = Math.floor(Math.random() * eventsApp.eventsArray.allEvents.length);
+//     return eventsApp.eventsArray.allEvents[randomEvents];
+//   }
+//   for (let i = 0; i < 3; i++) {
+
+//     const index = getRandomEvents();
+//     console.log("Show index", index);
+//     console.log("index.name", index.name);
+//     console.log("index._embedded.venues[0].name", index._embedded.venues[0].name);
+//     console.log("index.dates.start.localTime", index.dates.start.localTime);
+//     console.log(index.images[0].url);
+//     console.log(index.url);
+
+
+//     const imageSize = index.images.find(image => image.width === 1024);
+//     if (imageSize === )
+//       console.log(imageSize);
+
+//     $('.displayEvents')
+//       .append(`<div>
+//                     <h2>${index.name}</h2>
+//                     <p>${index._embedded.venues[0].name}</p>
+//                     <p>${index.dates.start.localTime}</p>
+//                     <img src="${imageSize.url}" alt=""/>
+//                     <a href="${index.url}">get tickets</a>
+//                 </div>`);
+//   }
+// }
+
 eventsApp.calendar = () => {
   $('.myCalendar').calendar({
     date: new Date(),
@@ -101,7 +140,7 @@ eventsApp.calendar = () => {
 }
 //create document ready
 $(document).ready(function () {
-  eventsApp.getUserPickCity();
+  eventsApp.getUserInput();
   eventsApp.calendar();
 
 });
