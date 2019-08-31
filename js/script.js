@@ -49,35 +49,62 @@ eventsApp.getUserInput = () => {
    eventsApp.calendar();
 },
 
+//Function to get random number to display random events
+eventsApp.getRandomEvents = () => {
+  const randomEvents = Math.floor(Math.random() * eventsApp.eventsArray.length);
+  return eventsApp.eventsArray[randomEvents];
+},
+
 //Function to display the events 
 eventsApp.displayEvents = (result) => {
   $('.displayEvents').empty();
   console.log("Display events");
+
+  //Stores the API data into an array
   result.forEach(function (events) {
     eventsApp.eventsArray.push(events);
   });
 
-  function getRandomEvents() {
-    const randomEvents = Math.floor(Math.random() * eventsApp.eventsArray.length);
-    return eventsApp.eventsArray[randomEvents];
-  }
-  
-  for (let i = 0; i < 3; i++) {
-    const index = getRandomEvents();
-    const imageSize = index.images.find(image => image.width === 1024);
-    console.log("inside loop", i);
-    console.log("random number", index);
-    $('.displayEvents')
-      .append(`<div>
-                    <img src="${imageSize.url}" alt=""/>
-                    <h2>${index.name}</h2>
-                    <p>${index._embedded.venues[0].name}</p>
-                    <p>${index.dates.start.localTime}</p>
+  if (eventsApp.eventsArray.length < 3) {
+    console.log('Less than 3 array');
+
+    eventsApp.eventsArray.forEach(function (events) {
+      console.log("events", events);
+      $('.displayEvents')
+        .append(`<div>
+                    <img src="${events.image.url}" alt=""/>
+                    <h2>${events.name}</h2>
+                    <p>${events._embedded.venues[0].name}</p>
+                    <p>${events.dates.start.localTime}</p>
                     
-                    <a href="${index.url}">get tickets</a>
+                    <a href="${events.url}">get tickets</a>
                 </div>`);
+    })
+
+  } else {
+    //Loops the array to only display 3 events
+    for (let i = 0; i < 3; i++) {
+      const index = eventsApp.getRandomEvents();
+      const imageSize = index.images.find(image => image.width === 1024);
+      
+      console.log("inside loop", i);
+      console.log("random number", index);
+      console.log(eventsApp.eventsArray.length);
+
+      console.log("inside random loop");
+      $('.displayEvents')
+        .append(`<div>
+                      <img src="${imageSize.url}" alt=""/>
+                      <h2>${index.name}</h2>
+                      <p>${index._embedded.venues[0].name}</p>
+                      <p>${index.dates.start.localTime}</p>
+                      
+                      <a href="${index.url}">get tickets</a>
+                  </div>`);
+      }
+      
+      eventsApp.eventsArray = []; 
   }
-  eventsApp.eventsArray = [];
 },
 
 //Function to display the calendar plugin 
@@ -87,13 +114,18 @@ eventsApp.calendar = () => {
       date: new Date(),
       autoSelect: false, // false by default
       select: function (date) {
+        console.log(new Date());
+        console.log(date);
+
         //Change of date format to yyyy-mm-dd
         const formatDate = new Date(date);
         const dateString = new Date(formatDate.getTime() - (formatDate.getTimezoneOffset() * 60000))
           .toISOString()
           .split("T")[0];
         console.log("inside calendar");
-        if (eventsApp.userPickCity === '' && eventsApp.userPickEvents === '') {
+        if (new Date() > date) {
+            alert('That day is gone');
+        } else if (eventsApp.userPickCity === '' && eventsApp.userPickEvents === '') {
           alert("Pick a city and event")
         } else if (eventsApp.userPickCity === '') {
           alert('Pick a city');
