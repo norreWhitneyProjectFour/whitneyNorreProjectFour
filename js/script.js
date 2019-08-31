@@ -68,15 +68,25 @@ eventsApp.displayEvents = (result) => {
     eventsApp.eventsArray.forEach(function (events) {
 
       const imageSize = events.images.find(image => image.width === 1024);
-      $('.displayEvents')
-        .append(`<div>
-                    <img src="${imageSize.url}" alt=""/>
-                    <h2>${events.name}</h2>
-                    <p>${events._embedded.venues[0].name}</p>
-                    <p>${events.dates.start.localTime}</p>
-                    
-                    <a href="${events.url}">get tickets</a>
-                </div>`);
+      $('.displayEvents').append(`<div class="displayContents">
+                                 <div class="displayContentsImage">
+                                   <img class="displayContentsImage"src="${imageSize.url} " alt="${events.name} "/>
+                                 </div >
+                                 <div class="displayContentsName">
+                                   <h2>${events.name}</h2>
+                                 </div>
+                                 <div class="displayContentsVenue">
+                                   <p>${events._embedded.venues[0].name}</p>
+                                 </div>
+                                 <div class="displayContentsTime">
+                                   <p>${events.dates.start.localTime}</p>
+                                 </div>
+                                 <div class="displayContentsTickets">
+                                   <a href="${events.url}">get tickets</a>
+                                 </div>
+                               </div > `);
+
+                
     })
   } else {
       //Display the first 3 events when there are more than 3 events
@@ -84,15 +94,23 @@ eventsApp.displayEvents = (result) => {
         // const index = eventsApp.getRandomEvents();
         const imageSize = eventsApp.eventsArray[i].images.find(image => image.width === 1024);
 
-        $('.displayEvents')
-          .append(`<div>
-                        <img src="${imageSize.url}" alt=""/>
-                        <h2>${eventsApp.eventsArray[i].name}</h2>
-                        <p>${eventsApp.eventsArray[i]._embedded.venues[0].name}</p>
-                        <p>${eventsApp.eventsArray[i].dates.start.localTime}</p>
-
-                        <a href="${eventsApp.eventsArray[i].url}">get tickets</a>
-                    </div>`);
+        $('.displayEvents').append(`<div class="displayContents">
+                                 <div class="displayContentsImage">
+                                   <img class="displayContentsImage"src="${imageSize.url} " alt="${eventsApp.eventsArray[i].name} "/>
+                                 </div >
+                                 <div class="displayContentsName">
+                                   <h2>${eventsApp.eventsArray[i].name}</h2>
+                                 </div>
+                                 <div class="displayContentsVenue">
+                                   <p>${eventsApp.eventsArray[i]._embedded.venues[0].name}</p>
+                                 </div>
+                                 <div class="displayContentsTime">
+                                   <p>${eventsApp.eventsArray[i].dates.start.localTime}</p>
+                                 </div>
+                                 <div class="displayContentsTickets">
+                                   <a href="${eventsApp.eventsArray[i].url}">get tickets</a>
+                                 </div>
+                                </div > `);
         } 
     }
     //Empty the events array
