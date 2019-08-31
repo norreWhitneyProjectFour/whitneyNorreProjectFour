@@ -2,18 +2,15 @@
   // border: 2px solid coral;
   display: flex;
   background: #121726;
-  // padding: 5% 0;
-  // justify-content: space-between;
   height: 100vh;
   padding: 10% 0;
-  
+
   h2 {
     font-size: 1.5rem;
     padding: 5% 1%;
     line-height: 1.5rem;
     color: #fff;
     line-height: 40px;
-    // width: calc(100%  / 3) - 4%;
   }
 
   p {
@@ -63,20 +60,13 @@
   font-size: 1.2rem;
   text-transform: capitalize;
   margin: 2%;
-  a {
-    text-decoration: none;
-    color: #00b8a9;
-    // padding-bottom: 50%;
-  }
-
 }
 
-// .displayContentsTickets a {
-//   text-decoration: none;
-//   color: #00b8a9;
-//   padding-bottom: 50%;
-
-// }
+.displayContentsTickets a {
+  text-decoration: none;
+  color: #00b8a9;
+  padding-bottom: 15%;
+}
 
 .displayContentsTickets a:hover {
   color: #ffde7d;

@@ -70,6 +70,7 @@
 }
 .ic-arrow-angle-left:before {
   content: "\e90f";
+  font-size: 1.5rem;
 }
 .ic-arrow-angle-mini-down:before {
   content: "\e910";
@@ -85,12 +86,14 @@
 }
 .ic-arrow-angle-right:before {
   content: "\e914";
+  font-size: 1.5rem;
 }
 .ic-arrow-angle-up:before {
   content: "\e915";
 }
 .ic-arrow-circle-angle-down:before {
   content: "\e916";
+  font-size: 1.2rem;
 }
 .ic-arrow-circle-angle-left:before {
   content: "\e917";
@@ -1993,9 +1996,6 @@
 }
 .ic-tags:before {
   content: "\eb90";
-}
-.ic-target:before {
-  content: "\eb91";
 }
 .ic-terminal:before {
   content: "\eb92";

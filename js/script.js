@@ -31,24 +31,24 @@ eventsApp.getEvents = () => {
   })
 },
 
-  //Function to get user selection of city and date     
-  eventsApp.getUserInput = () => {
-    //Gets the value of selected city
-    $('.dropdownCityContent').on('click', 'li', function (e) {
-      e.stopPropagation();
-      eventsApp.userPickCity = $(this).text();
-      $('.dropbtn1').text(eventsApp.userPickCity);
-    });
+//Function to get user selection of city and date     
+eventsApp.getUserInput = () => {
+  //Gets the value of selected city
+  $('.dropdownCityContent').on('click', 'li', function (e) {
+    e.stopPropagation();
+    eventsApp.userPickCity = $(this).text();
+    $('.dropbtn1').text(eventsApp.userPickCity);
+  });
 
-    //Gets the value of selected event
-    $('.dropdownEventContent').on('click', 'li', function (e) {
-      e.stopPropagation();
-      eventsApp.userPickEvents = $(this).text();
-      $('.dropbtn2').text(eventsApp.userPickEvents);
-    });
+  //Gets the value of selected event
+  $('.dropdownEventContent').on('click', 'li', function (e) {
+    e.stopPropagation();
+    eventsApp.userPickEvents = $(this).text();
+    $('.dropbtn2').text(eventsApp.userPickEvents);
+  });
 
-    eventsApp.calendar();
-  },
+  eventsApp.calendar();
+},
 
   //Function to display the events 
   eventsApp.displayEvents = (result) => {
