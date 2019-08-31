@@ -25,7 +25,7 @@ eventsApp.getEvents = () => {
     }
   }).then ((res) => {
     console.log("Then result", res);
-      eventsApp.displayEvents(res);
+      eventsApp.displayEvents(res._embedded.events);
     });
 },
 
@@ -53,7 +53,7 @@ eventsApp.getUserInput = () => {
 eventsApp.displayEvents = (result) => {
   $('.displayEvents').empty();
   console.log("Display events");
-  result._embedded.events.forEach(function (events) {
+  result.forEach(function (events) {
     eventsApp.eventsArray.push(events);
   });
 
@@ -66,6 +66,7 @@ eventsApp.displayEvents = (result) => {
     const index = getRandomEvents();
     const imageSize = index.images.find(image => image.width === 1024);
     console.log("inside loop", i);
+    console.log("random number", index);
     $('.displayEvents')
       .append(`<div>
                     <img src="${imageSize.url}" alt=""/>
