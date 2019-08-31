@@ -5,34 +5,31 @@ eventsApp.url = "https://app.ticketmaster.com/discovery/v2/events.json";
 eventsApp.apiKey = "ftYfSGG92vqF6hHoXIE25YwqEXwj0jhe";
 
 eventsApp.userPickDate = '',
-  eventsApp.userPickCity = '',
-  eventsApp.userPickEvents = '',
+eventsApp.userPickCity = '',
+eventsApp.userPickEvents = '',
 
-  eventsApp.eventsArray = [],
+eventsApp.eventsArray = [],
 
   //Function to make API call to Ticketmaster
-  eventsApp.getEvents = () => {
-    $.ajax({
-      method: "GET",
-      url: eventsApp.url,
-      dataType: "json",
-      data: {
-        apikey: eventsApp.apiKey,
-        startDateTime: `${eventsApp.userPickDate}T00:00:00Z`,
-        endDateTime: `${eventsApp.userPickDate}T23:00:00Z`,
-        city: eventsApp.userPickCity,
-        segmentName: eventsApp.userPickEvents
-      }
-    }).then((res) => {
-      console.log("Then result", res);
-      eventsApp.displayEvents(res._embedded.events);
-    })
-    // .catch(error => {
-    //     // error is a variable whose value is 
-    //     // whatever we defined in the reject function when we created the promise
-    //     console.log("ERROR", error);
-    //  })
-  },
+eventsApp.getEvents = () => {
+  $.ajax({
+    method: "GET",
+    url: eventsApp.url,
+    dataType: "json",
+    data: {
+      apikey: eventsApp.apiKey,
+      startDateTime: `${eventsApp.userPickDate}T00:00:00Z`,
+      endDateTime: `${eventsApp.userPickDate}T23:00:00Z`,
+      city: eventsApp.userPickCity,
+      segmentName: eventsApp.userPickEvents
+    }
+  }).then((res) => {
+    console.log("Then result", res);
+    eventsApp.displayEvents(res._embedded.events);
+  }).catch(() => {
+    swal("Soorrryyyy...", "NO EVENTS THIS DAY!!", "error");  
+  })
+},
 
   //Function to get user selection of city and date     
   eventsApp.getUserInput = () => {
@@ -62,7 +59,7 @@ eventsApp.userPickDate = '',
     result.forEach(function (events) {
       eventsApp.eventsArray.push(events);
     });
-
+ 
     if (eventsApp.eventsArray.length < 3) {
       //Display all  3 events when there is only 3 events
       eventsApp.eventsArray.forEach(function (events) {
