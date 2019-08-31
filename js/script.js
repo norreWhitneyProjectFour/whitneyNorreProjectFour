@@ -1,136 +1,152 @@
-//user will select specifc date from date picker
-//make object array
+//Object array
 eventsApp = {};
 
-//store user input in a variable to make API call
 eventsApp.url = "https://app.ticketmaster.com/discovery/v2/events.json";
-
 eventsApp.apiKey = "ftYfSGG92vqF6hHoXIE25YwqEXwj0jhe";
 
 eventsApp.userPickDate = '',
-  eventsApp.userPickCity = '',
-  eventsApp.userPickEvents = '',
-  eventsApp.eventsArray = [],
+eventsApp.userPickCity = '',
+eventsApp.userPickEvents = '',
 
-  eventsApp.getEvents = (city, date, segmentName) => {
-    $.ajax({
-      type: "GET",
-      url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=KA2M6AWn63bg3pVc9OkXqcDPqV2x2Dbc&city=${city}&startDateTime=${date}T00:00:00Z&endDateTime=${date}T23:00:00Z&segmentName=${segmentName}`,
-      async: true,
-      dataType: "json",
+eventsApp.eventsArray = [],
 
-      success: function (res) {
-        console.log(res);
-        eventsApp.displayEvents(res);
-        // Parse the response.
-        // Do other things.
-      },
-      error: function (xhr, status, err) {
-        console.log("NO EVENTS!!");
-        // This time, we do not end up here!
-      }
+//Function to make API call to Ticketmaster
+eventsApp.getEvents = () => {
+  $.ajax({
+    method: "GET",
+    url: eventsApp.url,
+    dataType: "json",
+    data: {
+      apikey: eventsApp.apiKey,
+      startDateTime: `${eventsApp.userPickDate}T00:00:00Z`,
+      endDateTime: `${eventsApp.userPickDate}T23:00:00Z`,
+      city: eventsApp.userPickCity,
+      segmentName: eventsApp.userPickEvents
+    }
+  }).then ((res) => {
+    console.log("Then result", res);
+    eventsApp.displayEvents(res._embedded.events);
+  })
+  // .catch(error => {
+  //     // error is a variable whose value is 
+  //     // whatever we defined in the reject function when we created the promise
+  //     console.log("ERROR", error);
+  //  })
+},
+
+//Function to get user selection of city and date     
+eventsApp.getUserInput = () => {
+  //Gets the value of selected city
+  $('.dropdownCityContent').on('click', 'li', function (e) {
+    e.stopPropagation();
+    eventsApp.userPickCity = $(this).text();
+    $('.dropbtn1').text(eventsApp.userPickCity);
+  });
+
+  //Gets the value of selected event
+  $('.dropdownEventContent').on('click', 'li', function (e) {
+    e.stopPropagation();
+    eventsApp.userPickEvents = $(this).text();
+    $('.dropbtn2').text(eventsApp.userPickEvents);
     });
-  },
-  eventsApp.getUserInput = () => {
 
+   eventsApp.calendar();
+},
 
-    //Gets the value of selected city
-    $('.dropdownCityContent').on('click', 'li', function (e) {
-      e.stopPropagation();
-      eventsApp.userPickCity = $(this).text();
-      $('.dropbtn1').text(eventsApp.userPickCity);
-      console.log("city click", eventsApp.userPickCity);
-    });
-
-    //Gets the value of selected event
-    $('.dropdownEventContent').on('click', 'li', function (e) {
-      e.stopPropagation();
-      eventsApp.userPickEvents = $(this).text();
-      $('.dropbtn2').text(eventsApp.userPickEvents);
-      console.log("Events click", eventsApp.userPickEvents);
-    });
-  }
-
-
+//Function to display the events 
 eventsApp.displayEvents = (result) => {
   $('.displayEvents').show();
   $('.displayEvents').empty();
-  result._embedded.events.forEach(function (events) {
+
+  //Stores the API data into an array
+  result.forEach(function (events) {
     eventsApp.eventsArray.push(events);
   });
+  
+  if (eventsApp.eventsArray.length < 3) {
+    //Display all  3 events when there is only 3 events
+    eventsApp.eventsArray.forEach(function (events) {
 
-  console.log('this is the length', eventsApp.eventsArray.length);
+      const imageSize = events.images.find(image => image.width === 1024);
+      $('.displayEvents')
+        .append(`<div>
+                    <img src="${imageSize.url}" alt=""/>
+                    <h2>${events.name}</h2>
+                    <p>${events._embedded.venues[0].name}</p>
+                    <p>${events.dates.start.localTime}</p>
+                    
+                    <a href="${events.url}">get tickets</a>
+                </div>`);
+    })
+  } else {
+      //Display the first 3 events when there are more than 3 events
+      for (let i = 0; i < 3; i++) {
+        // const index = eventsApp.getRandomEvents();
+        const imageSize = eventsApp.eventsArray[i].images.find(image => image.width === 1024);
 
-  if (eventsApp.eventsArray.length === 0) {
-    // alert('NO EVENTS TODAY!!');
-    console.log(eventsApp.eventsArray);
-  }
+        $('.displayEvents')
+          .append(`<div>
+                        <img src="${imageSize.url}" alt=""/>
+                        <h2>${eventsApp.eventsArray[i].name}</h2>
+                        <p>${eventsApp.eventsArray[i]._embedded.venues[0].name}</p>
+                        <p>${eventsApp.eventsArray[i].dates.start.localTime}</p>
 
-  function getRandomEvents() {
-    const randomEvents = Math.floor(Math.random() * eventsApp.eventsArray.length);
-    return eventsApp.eventsArray[randomEvents];
-  }
-  for (let i = 0; i < 3; i++) {
-
-    const index = getRandomEvents();
-    console.log("Show index", index);
-    console.log("index.name", index.name);
-    console.log("index._embedded.venues[0].name", index._embedded.venues[0].name);
-    console.log("index.dates.start.localTime", index.dates.start.localTime);
-    console.log(index.images[0].url);
-    console.log(index.url);
-
-
-    const imageSize = index.images.find(image => image.width === 1024);
-
-    console.log(imageSize);
-
-    $('.displayEvents').append(`<div class="displayContents">
-                                  <div class="displayContentsImage">
-                                    <img class="displayContentsImage"src="${imageSize.url} " alt="${index.name} "/>
-                                  </div >
-                                  <div class="displayContentsName">
-                                    <h2>${index.name}</h2>
-                                  </div>
-                                  <div class="displayContentsVenue">
-                                    <p>${index._embedded.venues[0].name}</p>
-                                  </div>
-                                  <div class="displayContentsTime">
-                                    <p>${index.dates.start.localTime}</p>
-                                  </div>
-                                  <div class="displayContentsTickets">
-                                    <a href="${index.url}">get tickets</a>
-                                  </div>
-                                </div > `);
-  }
-  eventsApp.eventsArray = [];
-}
-
-eventsApp.calendar = () => {
-  $('.myCalendar').calendar({
-    date: new Date(),
-    autoSelect: false, // false by default
-    select: function (date) {
-
-      const formatDate = new Date(date);
-      const dateString = new Date(formatDate.getTime() - (formatDate.getTimezoneOffset() * 60000))
-        .toISOString()
-        .split("T")[0];
-
-      eventsApp.userPickDate = dateString;
-
-      eventsApp.getEvents(eventsApp.userPickCity, eventsApp.userPickDate, eventsApp.userPickEvents);
-    },
-    toggle: function (y, m) {
+                        <a href="${eventsApp.eventsArray[i].url}">get tickets</a>
+                    </div>`);
+        } 
     }
-  })
+    //Empty the events array
+    eventsApp.eventsArray = [];
+  },
+
+//Function to display the calendar plugin 
+eventsApp.calendar = () => {
+  $('.myCalendar').empty();  
+    $('.myCalendar').calendar({
+      date: new Date(),
+      autoSelect: false, // false by default
+      select: function (date) {
+        
+        //Change of date format to yyyy-mm-dd
+        const formatPickDate = new Date(date);
+        const selectedDate = new Date(formatPickDate.getTime() - (formatPickDate.getTimezoneOffset() * 60000))
+          .toISOString()
+          .split("T")[0];
+        
+        const formatTodayDate = new Date();
+        const todayDate = new Date(formatTodayDate.getTime() - (formatTodayDate.getTimezoneOffset() * 60000))
+          .toISOString()
+          .split("T")[0];
+      
+       //Condition statements to make sure user pick a city, type of event and specific date
+        if (todayDate > selectedDate) {
+            alert('That day is gone');
+        } else if (eventsApp.userPickCity === '' && eventsApp.userPickEvents === '') {
+          alert("Pick a city and event")
+        } else if (eventsApp.userPickCity === '') {
+          alert('Pick a city');
+        } else if (eventsApp.userPickEvents === '') {
+          alert('Pick an event');
+        } else {
+          eventsApp.userPickDate = selectedDate;
+          eventsApp.getEvents();
+        }
+      },
+      toggle: function (y, m) { }
+    })
+},
+
+eventsApp.init = () => {
+  //Loads the calendar
+  $('.myCalendar').calendar();
+
+  eventsApp.getUserInput();
+  
 }
 
-
-//create document ready
+//Start of doc ready
 $(document).ready(function () {
-  $('.displayEvents').hide();
-  eventsApp.getUserInput();
-  eventsApp.calendar();
+  eventsApp.init();
 
 });
+
