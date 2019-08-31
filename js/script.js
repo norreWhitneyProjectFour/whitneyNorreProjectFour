@@ -32,22 +32,22 @@ eventsApp.userPickDate = '',
     });
   },
   eventsApp.getUserInput = () => {
-    
-    
+
+
     //Gets the value of selected city
     $('.dropdownCityContent').on('click', 'li', function (e) {
-     e.stopPropagation();
+      e.stopPropagation();
       eventsApp.userPickCity = $(this).text();
-     $('.dropbtn1').text(eventsApp.userPickCity);
-     console.log("city click", eventsApp.userPickCity);
+      $('.dropbtn1').text(eventsApp.userPickCity);
+      console.log("city click", eventsApp.userPickCity);
     });
 
     //Gets the value of selected event
-  $('.dropdownEventContent').on('click', 'li', function (e) {
-    e.stopPropagation();
-    eventsApp.userPickEvents = $(this).text();
-    $('.dropbtn2').text(eventsApp.userPickEvents);
-    console.log("Events click", eventsApp.userPickEvents);
+    $('.dropdownEventContent').on('click', 'li', function (e) {
+      e.stopPropagation();
+      eventsApp.userPickEvents = $(this).text();
+      $('.dropbtn2').text(eventsApp.userPickEvents);
+      console.log("Events click", eventsApp.userPickEvents);
     });
   }
 
@@ -57,6 +57,13 @@ eventsApp.displayEvents = (result) => {
   result._embedded.events.forEach(function (events) {
     eventsApp.eventsArray.push(events);
   });
+
+  console.log('this is the length', eventsApp.eventsArray.length);
+
+  if (eventsApp.eventsArray.length === 0) {
+    // alert('NO EVENTS TODAY!!');
+    console.log(eventsApp.eventsArray);
+  }
 
   function getRandomEvents() {
     const randomEvents = Math.floor(Math.random() * eventsApp.eventsArray.length);
@@ -74,17 +81,26 @@ eventsApp.displayEvents = (result) => {
 
 
     const imageSize = index.images.find(image => image.width === 1024);
-  
-      console.log(imageSize);
 
-    $('.displayEvents')
-      .append(`<div>
-                    <h2>${index.name}</h2>
-                    <p>${index._embedded.venues[0].name}</p>
-                    <p>${index.dates.start.localTime}</p>
-                    <img src="${imageSize.url}" alt=""/>
-                    <a href="${index.url}">get tickets</a>
-                </div>`);
+    console.log(imageSize);
+
+    $('.displayEvents').append(`<div class="displayContents">
+                                  <div class="displayContentsImage">
+                                    <img class="displayContentsImage"src="${imageSize.url} " alt="${index.name} "/>
+                                  </div >
+                                  <div class="displayContentsName">
+                                    <h2>${index.name}</h2>
+                                  </div>
+                                  <div class="displayContentsVenue">
+                                    <p>${index._embedded.venues[0].name}</p>
+                                  </div>
+                                  <div class="displayContentsTime">
+                                    <p>${index.dates.start.localTime}</p>
+                                  </div>
+                                  <div class="displayContentsTickets">
+                                    <a href="${index.url}">get tickets</a>
+                                  </div>
+                                </div > `);
   }
   eventsApp.eventsArray = [];
 }
@@ -94,31 +110,25 @@ eventsApp.calendar = () => {
     date: new Date(),
     autoSelect: false, // false by default
     select: function (date) {
-  
+
       const formatDate = new Date(date);
       const dateString = new Date(formatDate.getTime() - (formatDate.getTimezoneOffset() * 60000))
         .toISOString()
         .split("T")[0];
-     
+
       eventsApp.userPickDate = dateString;
-     
+
       eventsApp.getEvents(eventsApp.userPickCity, eventsApp.userPickDate, eventsApp.userPickEvents);
     },
     toggle: function (y, m) {
-  
     }
   })
 }
+
+
 //create document ready
 $(document).ready(function () {
   eventsApp.getUserInput();
   eventsApp.calendar();
 
 });
-
-
-//store the API data in an array
-//if event is happening display events using, if no events happening use .fail() to display "no events happening today"
-
-
-//display values of the array name, venue, image, ticket purchase url
