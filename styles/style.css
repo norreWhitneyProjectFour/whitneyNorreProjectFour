@@ -237,6 +237,7 @@ h1 {
 }
 
 img {
+  max-width: 100%;
   width: 100%;
 }
 
@@ -388,11 +389,11 @@ footer {
 }
 
 .displayEvents {
+  border: 2px solid coral;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background: #121726;
-  padding: 5% 0;
 }
 
 .displayEvents h2 {
@@ -409,20 +410,13 @@ footer {
 
 .displayContents {
   border: 2px solid #00b8a9;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   margin: 0 2%;
+  width: calc(100%  / 3)-4%;
   border-radius: 10px;
   background: #121726;
 }
 
 .displayContentsImage {
-  width: 500px;
   height: 300px;
   -o-object-fit: cover;
      object-fit: cover;

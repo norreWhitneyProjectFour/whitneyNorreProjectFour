@@ -1,8 +1,9 @@
 .displayEvents {
-  // border: 2px solid coral;
+  border: 2px solid coral;
   display: flex;
   background: #121726;
-  padding: 5% 0;
+  // padding: 5% 0;
+  // justify-content: space-between;
 
   h2 {
     font-size: 1.5rem;
@@ -19,19 +20,19 @@
 
 .displayContents {
   border: 2px solid #00b8a9;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   margin: 0 2%;
-  // width: calc(100%  / 3) - 4%;
+  width: calc(100%  / 3) - 4%;
   border-radius: 10px;
-   background: #121726;
+  background: #121726;
 }
 
 //DYNAMTIC CONTNET STYLES
 
 .displayContentsImage {
-  width: 500px;
-  height: 300px;
+  // width: 500px;
+  height: 300px; 
   object-fit: cover;
   background: #fff;
   border-radius: 8px 8px 0 0;
