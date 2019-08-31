@@ -26,12 +26,9 @@ eventsApp.userPickDate = '',
     }).then((res) => {
       console.log("Then result", res);
       eventsApp.displayEvents(res._embedded.events);
+    }).catch(() => {
+      swal("Soorrryyyy...", "NO EVENTS THIS DAY!!", "error");
     })
-    // .catch(error => {
-    //     // error is a variable whose value is 
-    //     // whatever we defined in the reject function when we created the promise
-    //     console.log("ERROR", error);
-    //  })
   },
 
   //Function to get user selection of city and date     
