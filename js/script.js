@@ -53,6 +53,7 @@ eventsApp.userPickDate = '',
 
 
 eventsApp.displayEvents = (result) => {
+  $('.displayEvents').show();
   $('.displayEvents').empty();
   result._embedded.events.forEach(function (events) {
     eventsApp.eventsArray.push(events);
@@ -128,6 +129,7 @@ eventsApp.calendar = () => {
 
 //create document ready
 $(document).ready(function () {
+  $('.displayEvents').hide();
   eventsApp.getUserInput();
   eventsApp.calendar();
 
