@@ -6,6 +6,7 @@
   // justify-content: space-between;
   height: 100vh;
   padding: 10% 0;
+  
   h2 {
     font-size: 1.5rem;
     padding: 5% 1%;
@@ -60,15 +61,15 @@
 
 .displayContentsTickets {
   font-size: 1.2rem;
-  padding: 2% 0;
   padding-left: 3%;
-  padding-bottom: 20%;
   text-transform: capitalize;
 }
 
 .displayContentsTickets a {
   text-decoration: none;
   color: #00b8a9;
+  padding-bottom: 50%;
+
 }
 
 .displayContentsTickets a:hover {
