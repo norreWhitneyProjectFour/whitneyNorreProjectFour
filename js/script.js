@@ -26,7 +26,11 @@ eventsApp.getEvents = () => {
   }).then ((res) => {
     console.log("Then result", res);
       eventsApp.displayEvents(res._embedded.events);
-    });
+  // }).catch(error => {
+  //     // error is a variable whose value is 
+  //     // whatever we defined in the reject function when we created the promise
+  //     console.log("ERROR", error);
+  //   })
 },
 
 //Function to get user selection of city and date     
@@ -58,21 +62,23 @@ eventsApp.getRandomEvents = () => {
 //Function to display the events 
 eventsApp.displayEvents = (result) => {
   $('.displayEvents').empty();
-  console.log("Display events");
 
+  
   //Stores the API data into an array
   result.forEach(function (events) {
     eventsApp.eventsArray.push(events);
   });
-
+  
   if (eventsApp.eventsArray.length < 3) {
-    console.log('Less than 3 array');
+    // console.log('Less than 3 array');
 
     eventsApp.eventsArray.forEach(function (events) {
       console.log("events", events);
+
+      const imageSize = events.images.find(image => image.width === 1024);
       $('.displayEvents')
         .append(`<div>
-                    <img src="${events.image.url}" alt=""/>
+                    <img src="${imageSize.url}" alt=""/>
                     <h2>${events.name}</h2>
                     <p>${events._embedded.venues[0].name}</p>
                     <p>${events.dates.start.localTime}</p>
@@ -80,32 +86,59 @@ eventsApp.displayEvents = (result) => {
                     <a href="${events.url}">get tickets</a>
                 </div>`);
     })
-
   } else {
-    //Loops the array to only display 3 events
-    for (let i = 0; i < 3; i++) {
-      const index = eventsApp.getRandomEvents();
-      const imageSize = index.images.find(image => image.width === 1024);
-      
-      console.log("inside loop", i);
-      console.log("random number", index);
-      console.log(eventsApp.eventsArray.length);
 
-      console.log("inside random loop");
-      $('.displayEvents')
-        .append(`<div>
-                      <img src="${imageSize.url}" alt=""/>
-                      <h2>${index.name}</h2>
-                      <p>${index._embedded.venues[0].name}</p>
-                      <p>${index.dates.start.localTime}</p>
-                      
-                      <a href="${index.url}">get tickets</a>
-                  </div>`);
-      }
+      for (let i = 0; i < 3; i++) {
+        // const index = eventsApp.getRandomEvents();
+        const imageSize = eventsApp.eventsArray[i].images.find(image => image.width === 1024);
+        console.log(imageSize);
+
+        $('.displayEvents')
+          .append(`<div>
+                        <img src="${imageSize.url}" alt=""/>
+                        <h2>${eventsApp.eventsArray[i].name}</h2>
+                        <p>${eventsApp.eventsArray[i]._embedded.venues[0].name}</p>
+                        <p>${eventsApp.eventsArray[i].dates.start.localTime}</p>
+
+                        <a href="${eventsApp.eventsArray[i].url}">get tickets</a>
+                    </div>`);
+        } 
+    }
+    eventsApp.eventsArray = [];
+  },
+
+        
+  
+
+    // console.log("Length of Array",eventsApp.eventsArray.length);
+  // } else {
+  //   //Loops the array to only display 3 events
+  //   for (let i = 0; i < 3; i++) {
+  //     const index = eventsApp.getRandomEvents();
+  //     const imageSize = index.images.find(image => image.width === 1024);
       
-      eventsApp.eventsArray = []; 
-  }
-},
+  //     console.log("inside loop", i);
+  //     console.log("random number", index);
+  //     console.log('Length of array', eventsApp.eventsArray.length);
+
+  //     console.log("inside random loop");
+  //     $('.displayEvents')
+  //       .append(`<div>
+  //                     <img src="${imageSize.url}" alt=""/>
+  //                     <h2>${index.name}</h2>
+  //                     <p>${index._embedded.venues[0].name}</p>
+  //                     <p>${index.dates.start.localTime}</p>
+                      
+  //                     <a href="${index.url}">get tickets</a>
+  //                 </div>`);
+  //     }
+
+  //   }
+//     eventsApp.eventsArray = []; 
+//   }
+      
+  
+// },
 
 //Function to display the calendar plugin 
 eventsApp.calendar = () => {
