@@ -53,6 +53,8 @@ eventsApp.getUserInput = () => {
   //Function to display the events 
   eventsApp.displayEvents = (result) => {
     $('.displayEvents').show();
+    $('.shareButton').show();
+    
     $('.displayEvents').empty();
 
     //Stores the API data into an array
@@ -110,10 +112,19 @@ eventsApp.getUserInput = () => {
                                 </div > `);
       }
     }
+    eventsApp.shareEvent();
     //Empty the events array
     eventsApp.eventsArray = [];
   },
 
+  eventsApp.shareEvent = () => {
+    $('.displayContents').on('click', function(){
+      const shareThisEvent = this;
+      $('.button').attr(`data-url`, `${shareThisEvent.children[4].firstElementChild.href}`);
+      $('.button').attr(`data-hashtags`, `goingtoanevent, getyourticketstoo`);
+      
+    });
+  }
   //Function to display the calendar plugin 
   eventsApp.calendar = () => {
     $('.myCalendar').empty();
@@ -153,12 +164,12 @@ eventsApp.getUserInput = () => {
 
   eventsApp.init = () => {
     $('.displayEvents').hide();
+    $('.shareButton').hide();
 
     //Loads the calendar
     $('.myCalendar').calendar();
 
     eventsApp.getUserInput();
-
   }
 
 //Start of doc ready

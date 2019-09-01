@@ -8,3 +8,20 @@
 
 
 
+.shareButton {
+    background: rgb(67, 115, 134);
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    // width: 70%;
+    margin: 0 auto;
+    button {
+        background: rgba(0, 0, 255, 0.349);
+        color: snow;
+        margin: 2%;
+        padding: 1% 7%;
+        &:hover {
+            background: blue;
+        }
+    }
+}
