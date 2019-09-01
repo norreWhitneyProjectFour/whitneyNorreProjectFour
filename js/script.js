@@ -133,6 +133,13 @@ eventsApp.userPickDate = '',
           .toISOString()
           .split("T")[0];
 
+        //When button is click move 100vh to next question; do this for each button
+        $(selectedDate).on('click', function () {
+          $('html, body').animate({
+            scrollTop: $(".displayEvents").offset().top
+          }, slow);
+        });
+
         //Condition statements to make sure user pick a city, type of event and specific date
         if (todayDate > selectedDate) {
           swal("Oops...", "Event already passed, pick another day!", "error");
