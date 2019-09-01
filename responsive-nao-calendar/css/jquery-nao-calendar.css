@@ -38,13 +38,12 @@
 	cursor: pointer;
 	background: transparent;
 	font-size: 16px;
-	line-height: 16px
 }
 
 .nao-month .month-head div {
 	text-align: center;
 	height: 16px;
-  line-height: 16px;
+  line-height: 25px;
   font-size: 1.2rem;
   padding: 3% 0;
   text-transform: uppercase;
