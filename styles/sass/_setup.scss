@@ -6,3 +6,30 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
 
+.skipLink {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  z-index: 999;
+  background: rgba(255,255,255, 0.3);
+  color: black;
+  font-size: 0.7rem;
+  display: none;
+  a {
+      background: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.5rem;
+  }
+  &:focus {
+    display: block;
+    left: 10px;
+    outline-color: black;
+  }
+}
+
+@media(max-width: 768px) {
+    .skipLink {
+        opacity: 0;
+    }
+}

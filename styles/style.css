@@ -222,6 +222,66 @@ textarea {
   overflow: hidden;
 }
 
+.skipLink {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.3);
+  color: black;
+  font-size: 0.7rem;
+  display: none;
+}
+
+.skipLink a {
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.5rem;
+}
+
+.skipLink:focus {
+  display: block;
+  left: 10px;
+  outline-color: black;
+}
+
+@media (max-width: 768px) {
+  .skipLink {
+    opacity: 0;
+  }
+}
+
+.skipLink {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.3);
+  color: black;
+  font-size: 0.7rem;
+  display: none;
+}
+
+.skipLink a {
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.5rem;
+}
+
+.skipLink:focus {
+  display: block;
+  left: 10px;
+  outline-color: black;
+}
+
+@media (max-width: 768px) {
+  .skipLink {
+    opacity: 0;
+  }
+}
+
 html {
   font-size: 125%;
   overflow-x: hidden;
@@ -1220,7 +1280,7 @@ footer p {
 }
 
 .ic-arrow-angle-left:before {
-  content: "\e90f";
+  content: "⏪";
   font-size: 1.5rem;
 }
 
@@ -1241,7 +1301,7 @@ footer p {
 }
 
 .ic-arrow-angle-right:before {
-  content: "\e914";
+  content: "⏩";
   font-size: 1.5rem;
 }
 
@@ -1250,7 +1310,7 @@ footer p {
 }
 
 .ic-arrow-circle-angle-down:before {
-  content: "\e916";
+  content: "🗓";
   font-size: 1.2rem;
 }
 
@@ -4764,6 +4824,7 @@ footer p {
 
 .displayContents {
   border: 2px solid #00b8a9;
+  cursor: pointer;
   margin: 100px 2%;
   width: 50%;
   height: 99%;
@@ -4771,6 +4832,11 @@ footer p {
   background: #121726;
   -webkit-box-shadow: 5px 5px 25px #183555;
           box-shadow: 5px 5px 25px #183555;
+}
+
+.displayContents:hover {
+  -webkit-box-shadow: 15px 15px 15px #ffde7d80;
+          box-shadow: 15px 15px 15px #ffde7d80;
 }
 
 .displayContentsSelected {
