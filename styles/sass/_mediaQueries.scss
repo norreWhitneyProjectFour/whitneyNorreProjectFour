@@ -75,6 +75,9 @@
       justify-content: center;
       margin-top: 3%;
   }
+  .nao-month td {
+    padding: 15px 1px;
+  } 
 
   .displayEvents {
     flex-direction: column;
@@ -92,10 +95,15 @@
     text-align: center;
   }
 }
+  
 
 @media only screen and (max-width: 800px){  
+
+  .mainHeader {
+      background-image: url('../images/headerBackground800px.jpg');
+  }
   .container {
-    margin: 25% 0;
+    margin: 7% 0;
   }
 
   .backToTop {
@@ -133,9 +141,17 @@
   }
 
   .backToTop {
-    margin-top: -17%;
-    padding-bottom: 9.9%;
+    margin-top: -35%;
+    padding-bottom: 29.9%;
     text-align: center;
+  }
+
+  .shareEvents button {
+    margin: 0% 1% 15% 1%;
+  }
+
+  footer {
+    margin-top: -2%;
   }
 }
 
@@ -145,15 +161,12 @@
     width: 90%;
     margin-top: 11%;
   }
-  .shareEvents {
-    flex-direction: column;
-    button {
-      margin: 2%;
-    }
-  }
 }
 
 @media only screen and (max-width: 414px){ 
+  .mainHeader {
+      background-image: url('../images/headerBackground414px.jpg');
+  }
   .logoContainer {
     width: 70px;
   }
@@ -168,8 +181,12 @@
     padding: 0 0;
   }
   .container {
-    margin: 5% 0;
+    margin: 10% 0;
   }
+
+  .nao-month td {
+    padding: 11px 1px;
+  } 
 
   .displayEvents {
     flex-direction: column;
@@ -185,9 +202,17 @@
     padding-bottom: 5.9%;
     text-align: center;
   }
+
+  footer {
+    margin-top: -4%;
+  }
 }
 
 @media only screen and (max-width: 375px){ 
+
+  .mainHeader {
+      background-image: url('../images/headerBackground375px.jpg');
+  }
 
   .logoContainer {
     width: 90px;
@@ -212,6 +237,14 @@
     padding: 0% 0;
   }
 
+  .container {
+    margin-top: 8%;
+  }
+
+  .nao-month td {
+    padding: 7px 1px;
+  } 
+
   .displayEvents {
     flex-direction: column;
     height: 260vh;
@@ -220,9 +253,17 @@
   .backToTop {
     padding-bottom: 5.9%;
   }
+
+   footer {
+    margin-top: -5%;
+  }
 }
 
 @media only screen and (max-width: 360px){ 
+
+  .mainHeader {
+      background-image: url('../images/headerBackground360px.jpg');
+  }
 
   .logoContainer {
     width: 80px;
@@ -250,11 +291,8 @@
   }
 
   .nao-month td {
-    text-align: center;
-    padding: 5px 1px;
-    width: 40px;
-    text-transform: uppercase;
-  }
+    padding: 15px 1px;
+  } 
 
   .displayContents {
     margin: 5% auto;
@@ -266,21 +304,30 @@
   }
 
   .backToTop {
-    margin-top: -17%;
-    padding-bottom: 7.9%;
+    margin-top: -45%;
+    padding-bottom: 37.9%;
     text-align: center;
+  }
+
+  .shareEvents button {
+    margin: 20% 1% 8% 1%;
+  }
+
+  footer {
+    margin-top: -2%;
   }
 }
 
 @media only screen and (max-width: 355px){
+
   .logoContainer {
-    width: 110px;
+    width: 90px;
   }
    .mainHeader {
       background-image: url('../images/headerBackground355px.jpg');
   }
   .headerContents h1 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     line-height: 2.2rem;
     padding-top: 4%;
     line-height: 30px;
@@ -300,17 +347,26 @@
     margin-top: 11%;
   }
 
+  .nao-month td {
+    padding: 20px 1px;
+  } 
+
   .displayContents {
     margin: 5% auto;
     width: 83%;
   }
 
   footer {
+    margin-top: -10%;
     padding: 2% 0;
   }
 }
 
 @media only screen and (max-width: 320px){
+
+   .mainHeader {
+      background-image: url('../images/headerBackground320px.jpg');
+  }
 
   .logoContainer {
     width: 90px;
@@ -325,4 +381,12 @@
   .dropDownContainer h2 {
     font-size: 1rem;
   }
+
+  .container {
+    margin-top: 40%;
+  }
+
+  .nao-month td {
+    padding: 25px 1px;
+  } 
 }

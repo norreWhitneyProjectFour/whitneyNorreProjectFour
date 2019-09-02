@@ -31,13 +31,13 @@
   background: $primaryColor;
   box-shadow: 5px 5px 25px #183555;
   &:hover {
-    box-shadow: 15px 15px 15px #ffde7d80;
+    box-shadow: 7px 7px 15px #ffde7d80;
   }
 }
 
 .displayContentsSelected {
   background: $primaryColor;
-  box-shadow: 15px 15px 15px #ffde7d;
+  box-shadow: 2px 2px 15px #ffde7d;
 }
 //DYNAMTIC CONTENT STYLES
 
@@ -90,7 +90,7 @@
       background: $primaryColor;
       border: 2px solid $secondaryColor;
       color: snow;
-      margin: 0 1% 4% 1%;
+      margin: 0 1% 8% 1%;
       padding: 1% 4%;
       &:hover {
           color: $tertiaryColor;
