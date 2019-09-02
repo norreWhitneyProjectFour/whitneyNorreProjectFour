@@ -209,6 +209,7 @@ eventsApp.init = () => {
 
   eventsApp.displayDropdown();
   eventsApp.getUserInput();
+  
 
 },
 

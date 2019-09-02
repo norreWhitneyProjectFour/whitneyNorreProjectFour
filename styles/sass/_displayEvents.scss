@@ -1,10 +1,11 @@
 section {
   background: $primaryColor;
-  height: 100vh;
 }
 .displayEvents {
   display: flex;
+  justify-content: center;
   padding: 10% 0;
+  height: 100vh;
 
   h2 {
     font-size: 1.5rem;
@@ -81,13 +82,13 @@ section {
   display: flex;
   justify-content: center;
   background: $primaryColor;
-  margin: 0 auto 5% auto;
+  margin: 0 auto;
   button {
       background: $primaryColor;
       border: 2px solid $secondaryColor;
       color: snow;
       margin: 0 1%;
-      padding: 1% 6%;
+      padding: 1% 4%;
       &:hover {
           color: $tertiaryColor;
       }
