@@ -32,7 +32,11 @@
   box-shadow: 5px 5px 25px #183555;
 }
 
-//DYNAMTIC CONTNET STYLES
+.displayContentsSelected {
+  background: #12172698;
+  box-shadow: 15px 15px 15px #ffde7d;
+}
+//DYNAMTIC CONTENT STYLES
 
 .displayContentsImage {
   // width: 500px;
@@ -60,6 +64,9 @@
 }
 
 .displayContentsTickets {
+  display: flex;
+  display: inline-block;
+  justify-content: space-between;
   font-size: 1.2rem;
   padding: 5% 5%;
   text-transform: capitalize;
@@ -75,3 +82,16 @@
 .displayContentsTickets a:hover {
   color: #ffde7d;
 }
+.button {
+  background: none;
+  border: none; 
+  color: #00b8a9;
+    .fab{
+        font-size: 1.5rem;
+        
+        &:hover {
+          color: #ffde7d;
+        }
+    }
+}
+    

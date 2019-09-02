@@ -463,6 +463,12 @@ footer {
           box-shadow: 5px 5px 25px #183555;
 }
 
+.displayContentsSelected {
+  background: #12172698;
+  -webkit-box-shadow: 15px 15px 15px #ffde7d;
+          box-shadow: 15px 15px 15px #ffde7d;
+}
+
 .displayContentsImage {
   height: 300px;
   -o-object-fit: cover;
@@ -488,6 +494,13 @@ footer {
 }
 
 .displayContentsTickets {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: inline-block;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-size: 1.2rem;
   padding: 5% 5%;
   text-transform: capitalize;
@@ -501,6 +514,20 @@ footer {
 }
 
 .displayContentsTickets a:hover {
+  color: #ffde7d;
+}
+
+.button {
+  background: none;
+  border: none;
+  color: #00b8a9;
+}
+
+.button .fab {
+  font-size: 1.5rem;
+}
+
+.button .fab:hover {
   color: #ffde7d;
 }
 
@@ -641,4 +668,14 @@ footer {
   .dropDownContainer h2 {
     font-size: 1rem;
   }
+}
+
+.button {
+  background: none;
+  border: none;
+}
+
+.button .fab {
+  font-size: 1.5rem;
+  color: snow;
 }
