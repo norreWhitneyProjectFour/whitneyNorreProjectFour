@@ -38,14 +38,14 @@ eventsApp.getEvents = () => {
 //Function to  display dropdown menu
 eventsApp.displayDropdown = () => {
   //Display the dropdown menu for city selection
-  $('.dropbtn1').on('click', function(){
+  $('.dropbtn1').one('mouseover', function(){
     eventsApp.dropdownContent.city.forEach(function (city){
       $('.dropdownCityContent').append(`<li>${city}</li>`);
     })
   })
   
   //Display the dropdown menu for type of event selection
-  $('.dropbtn2').on('click', function () {
+  $('.dropbtn2').one('mouseover', function () {
     eventsApp.dropdownContent.event.forEach(function (event) {
       $('.dropdownEventContent').append(`<li>${event}</li>`);
     })
@@ -74,8 +74,8 @@ eventsApp.calendar = () => {
       //When button is click move 100vh to next question; do this for each button
       $('.myCalendar').on('click', function () {
         $('html, body').animate({
-          scrollIntoView: $('section').offset().top
-        }, 1000)
+          scrollTop: $('.displayEvents').offset().top
+        }, 2000)
       });
 
       //Condition statements to make sure user pick a city, type of event and specific date

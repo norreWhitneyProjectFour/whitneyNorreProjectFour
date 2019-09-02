@@ -61,7 +61,7 @@
 
   .displayEvents {
     flex-direction: column;
-    // justify-content: center;
+    justify-content: center;
     height: 200vh;
   }
 
@@ -91,7 +91,10 @@
 }
 
 @media only screen and (max-width: 355px){
-
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
   .logoContainer {
     width: 110px;
   }

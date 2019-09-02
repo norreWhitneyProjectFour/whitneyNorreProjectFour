@@ -5,7 +5,7 @@ html {
 
 body {
   font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $secondaryFont;
 }
 
 h1 {
@@ -23,7 +23,6 @@ img {
   max-width: 1680px;
   margin: 0 auto;
   width: 100%;
-  // border: 2px solid coral;
 }
 
 .dropDownWrapper {
@@ -33,9 +32,8 @@ img {
 
 //FOOTER STYLES
 footer {
-  // margin: 5%;
   padding: 0.7% 0;
   text-align: center;
-  background: #00b8a9;
+  background: $secondaryColor;
   color: #fff;
 }
