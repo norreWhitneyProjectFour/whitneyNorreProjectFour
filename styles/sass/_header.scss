@@ -14,7 +14,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // border: 2px solid coral;
   padding-top: 2%;
 
   h1 {
@@ -39,7 +38,6 @@
 
 .dropDownContainer {
   display: flex;
-  // justify-content: space-between;
   width: 815px;
   margin: 0 auto;
   margin-top: 2%;
@@ -89,10 +87,7 @@
 .dropdownCity,
 .dropdownEvent {
   position: relative;
-  // display: inline-block;
   z-index: 10;
-  // display: flex;
-  // justify-content: space-between;
   margin: 0 2%;
 }
 
