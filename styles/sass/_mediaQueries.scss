@@ -145,6 +145,12 @@
     width: 90%;
     margin-top: 11%;
   }
+  .shareEvents {
+    flex-direction: column;
+    button {
+      margin: 2%;
+    }
+  }
 }
 
 @media only screen and (max-width: 414px){ 
@@ -267,7 +273,6 @@
 }
 
 @media only screen and (max-width: 355px){
-
   .logoContainer {
     width: 110px;
   }
