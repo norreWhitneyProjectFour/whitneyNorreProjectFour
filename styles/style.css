@@ -303,6 +303,11 @@ img {
   width: 100%;
 }
 
+:focus {
+  -webkit-box-shadow: 0 0 0 0.5px #ffffff, 0 0 3px 5px #3a97f9;
+          box-shadow: 0 0 0 0.5px #ffffff, 0 0 3px 5px #3a97f9;
+}
+
 .wrapperContainer {
   max-width: 1680px;
   margin: 0 auto;
