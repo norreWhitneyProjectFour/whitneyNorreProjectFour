@@ -3,7 +3,7 @@
   background-image: url('../images/headerMainImage.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #121726;
+  background-color: $primaryColor;
   width: 100%;
   position: relative;
   background-position: 55% 0px;
@@ -14,11 +14,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // border: 2px solid coral;
   padding-top: 2%;
 
   h1 {
-    font-family: 'Barrio', cursive;
+    font-family: $primaryFont;
     text-transform: capitalize;
     text-shadow: 1px 1px 5px #808080;
     color: #fff;
@@ -39,7 +38,6 @@
 
 .dropDownContainer {
   display: flex;
-  // justify-content: space-between;
   width: 815px;
   margin: 0 auto;
   margin-top: 2%;
@@ -89,10 +87,7 @@
 .dropdownCity,
 .dropdownEvent {
   position: relative;
-  // display: inline-block;
   z-index: 10;
-  // display: flex;
-  // justify-content: space-between;
   margin: 0 2%;
 }
 
@@ -106,22 +101,17 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border-radius: 0 10px 10px 10px;
-}
-
-/* Links inside the dropdown */
-.dropdownCityContent li,
-.dropdownEventContent li {
-  color: #000;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  border-radius: 0 10px 10px 10px;
-}
-
-/* Change color of dropdown links on hover */
-.dropdownCityContent li:hover,
-.dropdownEventContent li:hover {
-  background-color: #f8f3d4;
+  /* Items inside the dropdown */
+  li {
+    color: #000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 0 10px 10px 10px;
+    &:hover { /* Change color of dropdown links on hover */
+      background-color: #f8f3d4;
+    }
+  }
 }
 
 /* Show the dropdown menu on hover */
@@ -133,5 +123,5 @@
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdownCity:hover .dropbtn1,
 .dropdownEvent:hover .dropbtn2 {
-  background-color: #00b8a9;
+  background-color: $secondaryColor;
 }

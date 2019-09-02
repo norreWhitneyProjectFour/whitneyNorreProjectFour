@@ -1,9 +1,10 @@
+
 .displayEvents {
-  // border: 2px solid coral;
   display: flex;
   background: #121726;
-  height: 100vh;
-  padding: 10% 0;
+  height: 110vh;
+  // padding-top: 5%;
+  padding-bottom: 20%;
 
   h2 {
     font-size: 1.5rem;
@@ -22,20 +23,25 @@
 
 .displayContents {
   border: 2px solid #00b8a9;
-  // display: flex;
-  // flex-direction: column;
-  margin: 0 2%;
+  cursor: pointer;
+  margin: 100px 2%;
   width: 50%;
-  height: 111%;
+  height: 99%;
   border-radius: 10px;
-  background: #121726;
+  background: $primaryColor;
   box-shadow: 5px 5px 25px #183555;
+  &:hover {
+    box-shadow: 15px 15px 15px #ffde7d80;
+  }
 }
 
-//DYNAMTIC CONTNET STYLES
+.displayContentsSelected {
+  background: $primaryColor;
+  box-shadow: 15px 15px 15px #ffde7d;
+}
+//DYNAMTIC CONTENT STYLES
 
 .displayContentsImage {
-  // width: 500px;
   height: 300px; 
   object-fit: cover;
   background: #fff;
@@ -46,7 +52,6 @@
   font-weight: 700;
   font-size: 1.2rem;
   padding: 0 5%;
-  
 }
 
 .displayContentsVenue {
@@ -56,21 +61,40 @@
 
 .displayContentsTime {
   font-size: 1.2rem;
-   padding: 0 5%;
+  padding: 0 5%;
 }
 
 .displayContentsTickets {
+  display: flex;
+  justify-content: space-between;
   font-size: 1.2rem;
   padding: 5% 5%;
   text-transform: capitalize;
+  margin: 2%;
+  a {
+    text-decoration: none;
+    color: $secondaryColor;
+    padding-bottom: 15%;
+    &:hover {
+      color: #ffde7d;
+    }
+  }
 }
 
-.displayContentsTickets a {
-  text-decoration: none;
-  color: #00b8a9;
-  padding-bottom: 15%;
-}
-
-.displayContentsTickets a:hover {
-  color: #ffde7d;
-}
+.shareEvents {
+  display: flex;
+  justify-content: center;
+  background: $primaryColor;
+  margin: 0 auto;
+  button {
+      background: $primaryColor;
+      border: 2px solid $secondaryColor;
+      color: snow;
+      margin: 0 1% 4% 1%;
+      padding: 1% 4%;
+      &:hover {
+          color: $tertiaryColor;
+      }
+      
+  }
+}  
