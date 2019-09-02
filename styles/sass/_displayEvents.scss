@@ -1,7 +1,9 @@
-.displayEvents {
-  display: flex;
+section {
   background: $primaryColor;
   height: 100vh;
+}
+.displayEvents {
+  display: flex;
   padding: 10% 0;
 
   h2 {
@@ -75,16 +77,20 @@
   }
 }
 
-.button {
-  background: none;
-  border: none; 
-  color: $secondaryColor;
-    .fab{
-        font-size: 1.5rem;
-        
-        &:hover {
-          color: #ffde7d;
-        }
-    }
-}
-    
+.shareEvents {
+  display: flex;
+  justify-content: center;
+  background: $primaryColor;
+  margin: 0 auto 5% auto;
+  button {
+      background: $primaryColor;
+      border: 2px solid $secondaryColor;
+      color: snow;
+      margin: 0 1%;
+      padding: 1% 6%;
+      &:hover {
+          color: $tertiaryColor;
+      }
+      
+  }
+}  

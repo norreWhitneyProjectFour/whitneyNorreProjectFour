@@ -71,13 +71,6 @@ eventsApp.calendar = () => {
         .toISOString()
         .split("T")[0];
 
-      //When button is click move 100vh to next question; do this for each button
-      $('.myCalendar').on('click', function () {
-        $('html, body').animate({
-          scrollTop: $('.displayEvents').offset().top
-        }, 2000)
-      });
-
       //Condition statements to make sure user pick a city, type of event and specific date
       if (todayDate > selectedDate) {
         swal("Oops...", "Event already passed, pick another day!", "error");
@@ -89,6 +82,12 @@ eventsApp.calendar = () => {
         swal("Oops...", "Pick an event!", "error");
       } else {
         eventsApp.userPickDate = selectedDate;
+        //When button is click move 100vh to next question; do this for each button
+        $('td').on('click', function () {
+          $('html, body').animate({
+            scrollTop: $('section').offset().top
+          }, 'slow')
+        });
         eventsApp.getEvents();
       }
     },
@@ -116,9 +115,10 @@ eventsApp.getUserInput = () => {
 
 //Function to display the events 
 eventsApp.displayEvents = (result) => {
-  $('.displayEvents').show();
+  $('section').show();
   $('.shareButton').show();
   $('.displayEvents').empty();
+  $('.shareEvents').empty();
 
   //Stores the API data into an array
   result.forEach(function (events) {
@@ -147,7 +147,7 @@ eventsApp.displayEvents = (result) => {
                         <div class="displayContentsTickets">
                           <a href="${events.url}">get tickets</a>
                         </div>
-                    </div > `);
+                    </div >`);
     })
   } else {
     //Display the first 3 events when there are more than 3 events
@@ -172,9 +172,12 @@ eventsApp.displayEvents = (result) => {
                     <div class="displayContentsTickets">
                       <a href="${eventsApp.eventsArray[i].url}">get tickets</a>
                     </div>
-                  </div > `);
+                  </div >`);
     }
   }
+  $('.shareEvents').append(`<button class="button" data-sharer="facebook">Share on Facebook <i class="fab fa-facebook"></i></button>
+    <button class="button" data-sharer="twitter">Share on Twitter <i class="fab fa-twitter"></i></button>`);
+
   //Empty the events array
   eventsApp.eventsArray = [];
   eventsApp.selectEvent();
@@ -184,9 +187,10 @@ eventsApp.displayEvents = (result) => {
 eventsApp.selectEvent = () => {
   $('.displayContents').on('click', function(){
     $(this).toggleClass('animated')
-            .toggleClass('pulse')
-            .toggleClass('displayContentsSelected');
+           .toggleClass('pulse')
+           .toggleClass('displayContentsSelected');
   })
+  eventsApp.shareEvent();
 },
 
 eventsApp.shareEvent = () => {
@@ -194,11 +198,12 @@ eventsApp.shareEvent = () => {
     const shareThisEvent = this;
     $('.button').attr(`data-url`, `${shareThisEvent.children[4].firstElementChild.href}`);
     $('.button').attr(`data-hashtags`, `goingtoanevent, getyourticketstoo`);
+    console.log("I am clicked");
   });
 }
 
 eventsApp.init = () => {
-  $('.displayEvents').hide();
+  $('section').hide();
   $('.shareButton').hide();
   $('.myCalendar').calendar(); //Loads the calendar
 
