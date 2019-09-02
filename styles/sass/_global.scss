@@ -1,5 +1,6 @@
 html {
-	font-size: 125%;
+  font-size: 125%;
+  overflow-x: hidden;
 }
 
 body {
@@ -33,6 +34,8 @@ img {
 //FOOTER STYLES
 footer {
   // margin: 5%;
-  // padding: 2% 0;
+  padding: 0.7% 0;
   text-align: center;
+  background: #00b8a9;
+  color: #fff;
 }

@@ -1,0 +1,146 @@
+@media only screen and (max-width: 1480px){
+  .displayContents {
+    height: 106%;
+  }
+}
+
+@media only screen and (max-width: 1165px){
+  .mainHeader {
+    background-position: 87% -10px;
+    background-image: url('../images/headerBackground1165px.jpg');
+  }
+  .container{
+    width: 70%;
+    margin-top: 5%;
+  }
+  .displayContents {
+    height: 90%;
+  }
+
+  .displayContentsName h2 {
+    font-size: 1.2rem;
+    line-height: 30px;
+  }
+
+  .displayContentsVenue p {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 925px){
+  .mainHeader {
+      background-image: url('../images/headerMainImage925px.jpg');
+  }
+
+  .headerContents h1 {
+    font-size: 2rem;
+    line-height: 40px;
+  }
+
+  .container {
+    width: 80%;
+    margin-top: 5%;
+  }
+
+  .dropDownContainer {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .dropDownContainer h2 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .buttonContainer {
+      display: flex;
+      justify-content: center;
+      margin-top: 3%;
+  }
+
+  .displayEvents {
+    flex-direction: column;
+    // justify-content: center;
+    height: 200vh;
+  }
+
+  .displayContents {
+    margin: 5% auto;
+    width: 63%;
+  }
+}
+
+@media only screen and (max-width: 785px){
+
+   .mainHeader {
+      background-image: url('../images/headerMainImage785px.jpg');
+  }
+
+  .headerContents h1 {
+    margin-top: 2%;
+  }
+}
+
+@media only screen and (max-width: 450px){ 
+
+   .container {
+    width: 90%;
+    margin-top: 11%;
+  }
+}
+
+@media only screen and (max-width: 355px){
+
+  .logoContainer {
+    width: 110px;
+  }
+   .mainHeader {
+      background-image: url('../images/headerBackground355px.jpg');
+  }
+  .headerContents h1 {
+    font-size: 2rem;
+    line-height: 2.2rem;
+    padding-top: 4%;
+  }
+
+  .dropDownContainer h2 {
+    font-size: 1.1rem;
+  }
+
+  .buttonContainer {
+    justify-content: center;
+    margin-top: 3%;
+  }
+
+   .container {
+    width: 95%;
+    margin-top: 5%;
+  }
+
+  .displayContents {
+    margin: 5% auto;
+    width: 83%;
+  }
+
+  footer {
+    padding: 2% 0;
+  }
+}
+
+@media only screen and (max-width: 320px){
+
+  .logoContainer {
+    width: 90px;
+
+  }
+  .headerContents h1 {
+    font-size: 1.8rem;
+    line-height: 1.9rem;
+    padding-top: 4%;
+  }
+
+  .dropDownContainer h2 {
+    font-size: 1rem;
+  }
+}

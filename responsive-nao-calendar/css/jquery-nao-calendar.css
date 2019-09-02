@@ -17,7 +17,8 @@
 
 .nao-month .month-head {
 	position: relative;
-	display: block;
+  display: block;
+  padding-top: 3%;
 }
 
 .nao-month .month-head button,
@@ -37,13 +38,12 @@
 	cursor: pointer;
 	background: transparent;
 	font-size: 16px;
-	line-height: 16px
 }
 
 .nao-month .month-head div {
 	text-align: center;
 	height: 16px;
-  line-height: 16px;
+  line-height: 25px;
   font-size: 1.2rem;
   padding: 3% 0;
   text-transform: uppercase;
@@ -106,7 +106,7 @@
 .nao-month th,
 .nao-month td {
 	text-align: center;
-	padding: 25px 1px;
+	padding: 19px 1px;
 	width: 40px;
 	text-transform: uppercase
 }
