@@ -1128,7 +1128,6 @@ footer {
 .ic {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'Aicon' !important;
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -4719,11 +4718,8 @@ footer {
   cursor: pointer;
 }
 
-section {
-  background: #121726;
-}
-
 .displayEvents {
+  background: #121726;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

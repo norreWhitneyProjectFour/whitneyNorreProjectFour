@@ -198,7 +198,8 @@ eventsApp.shareEvent = () => {
     const shareThisEvent = this;
     $('.button').attr(`data-url`, `${shareThisEvent.children[4].firstElementChild.href}`);
     $('.button').attr(`data-hashtags`, `goingtoanevent, getyourticketstoo`);
-    console.log("I am clicked");
+    
+    window.Sharer.init(); //Manual event binding for share social media from sharer.js
   });
 }
 
@@ -209,7 +210,6 @@ eventsApp.init = () => {
 
   eventsApp.displayDropdown();
   eventsApp.getUserInput();
-  
 
 },
 
