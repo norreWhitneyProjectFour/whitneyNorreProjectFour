@@ -4,6 +4,12 @@
   }
 }
 
+@media only screen and (max-width: 1389px){  
+  .displayContents {
+    height: 90%;
+  }
+}
+
 @media only screen and (max-width: 1165px){
   .mainHeader {
     background-position: 87% -10px;
@@ -27,6 +33,18 @@
   }
 }
 
+@media only screen and (max-width: 1115px){
+   .displayContents {
+    height: 85%;
+  }
+
+  .backToTop {
+    margin-top: -12%;
+    padding-bottom: 7.9%;
+    text-align: center;
+  }
+}
+
 @media only screen and (max-width: 925px){
   .mainHeader {
       background-image: url('../images/headerMainImage925px.jpg');
@@ -34,7 +52,6 @@
 
   .headerContents h1 {
     font-size: 2rem;
-    line-height: 40px;
   }
 
   .container {
@@ -61,13 +78,35 @@
 
   .displayEvents {
     flex-direction: column;
-    // justify-content: center;
-    height: 200vh;
+    height: 250vh;
   }
 
   .displayContents {
     margin: 5% auto;
     width: 63%;
+  }
+
+  .backToTop {
+    margin-top: -17%;
+    padding-bottom: 10.9%;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 800px){  
+  .container {
+    margin: 25% 0;
+  }
+
+  .backToTop {
+    padding-bottom: 10.9%;
+  }
+
+  .displayEvents {
+    height: 220vh;
+  }
+  .displayContents {
+    height: 32%;
   }
 }
 
@@ -80,6 +119,24 @@
   .headerContents h1 {
     margin-top: 2%;
   }
+  
+}
+
+@media only screen and (max-width: 768px){
+  
+  .container {
+    width: 80%;
+    margin: 15% 0;
+  }
+  .headerContents h1 {
+   line-height: 45px;
+  }
+
+  .backToTop {
+    margin-top: -17%;
+    padding-bottom: 9.9%;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 450px){ 
@@ -87,6 +144,125 @@
    .container {
     width: 90%;
     margin-top: 11%;
+  }
+}
+
+@media only screen and (max-width: 414px){ 
+  .logoContainer {
+    width: 70px;
+  }
+  .headerContents h1 {
+    font-size: 1.5rem;
+    padding: 0 15%;
+    line-height: 35px;
+  }
+
+  .dropDownContainer h2 {
+    font-size: 0.9rem;
+    padding: 0 0;
+  }
+  .container {
+    margin: 5% 0;
+  }
+
+  .displayEvents {
+    flex-direction: column;
+    height: 230vh;
+  }
+
+  .displayContents {
+    width: 83%;
+  }
+
+  .backToTop {
+    margin-top: -15%;
+    padding-bottom: 5.9%;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 375px){ 
+
+  .logoContainer {
+    width: 90px;
+    display: block;
+    margin-bottom: 2%;
+    // display: none;
+  }
+
+  .headerContents h1 {
+    font-size: 1.6rem;
+    padding: 0 10%;
+    line-height: 35px;
+    padding-top: 0%;
+  }
+
+  .dropDownContainer {
+    margin: 0;
+  }
+
+  .dropDownContainer h2 {
+    font-size: 0.9rem;
+    padding: 0% 0;
+  }
+
+  .displayEvents {
+    flex-direction: column;
+    height: 260vh;
+  }
+
+  .backToTop {
+    padding-bottom: 5.9%;
+  }
+}
+
+@media only screen and (max-width: 360px){ 
+
+  .logoContainer {
+    width: 80px;
+    display: block;
+    margin-bottom: 2%;
+  }
+
+  .headerContents h1 {
+    font-size: 1.4rem;
+    padding: 0 10%;
+    line-height: 35px;
+  }
+
+  .dropDownContainer h2 {
+    font-size: 1rem;
+    padding: 0% 0;
+  }
+
+  .dropDownContainer {
+    margin-top: 0;
+  }
+
+  .container {
+    margin: 5% 0;
+  }
+
+  .nao-month td {
+    text-align: center;
+    padding: 5px 1px;
+    width: 40px;
+    text-transform: uppercase;
+  }
+
+  .displayContents {
+    margin: 5% auto;
+    width: 83%;
+  }
+
+  .displayEvents {
+    height: 230vh;
+  }
+
+  .backToTop {
+    margin-top: -17%;
+    padding-bottom: 7.9%;
+    text-align: center;
   }
 }
 
@@ -99,13 +275,14 @@
       background-image: url('../images/headerBackground355px.jpg');
   }
   .headerContents h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 2.2rem;
     padding-top: 4%;
+    line-height: 30px;
   }
 
   .dropDownContainer h2 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 
   .buttonContainer {
@@ -115,7 +292,7 @@
 
    .container {
     width: 95%;
-    margin-top: 5%;
+    margin-top: 11%;
   }
 
   .displayContents {

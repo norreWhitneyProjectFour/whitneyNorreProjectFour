@@ -31,11 +31,33 @@ img {
   margin: 0 auto;
 }
 
+.backToTop {
+  margin-top: -8%;
+  padding-bottom: 5.9%;
+  text-align: center;
+}
+
+.backToTop a {
+  text-align: center;
+  padding: 1%;
+  color: #fff;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
 //FOOTER STYLES
 footer {
   // margin: 5%;
   padding: 0.7% 0;
   text-align: center;
-  background: #00b8a9;
+  background: #13192b;
   color: #fff;
+  position: absolute;
+  width: 100%;
+  // margin-top: -3%;
+}
+
+footer p {
+  font-size: 0.9rem;
 }

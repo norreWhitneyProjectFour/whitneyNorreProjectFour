@@ -168,9 +168,24 @@ eventsApp.userPickDate = '',
 
   }
 
+
 //Start of doc ready
 $(document).ready(function () {
   eventsApp.init();
+
+  //When button is click move 100vh to next question; do this for each button
+  $('.ripple-element').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $('.displayEvents').offset().top
+    }, 1000);
+  });
+
+  //When button is click move 100vh to next question; do this for each button
+  $('.backToTop').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $('.mainHeader').offset().top
+    }, 1000);
+  });
 
 });
 
