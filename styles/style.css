@@ -4726,8 +4726,8 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 10% 0;
-  height: 100vh;
+  padding: 5% 0;
+  height: 90vh;
 }
 
 .displayEvents h2 {
@@ -4823,7 +4823,7 @@ footer {
   background: #121726;
   border: 2px solid #00b8a9;
   color: snow;
-  margin: 0 1%;
+  margin: 0 1% 4% 1%;
   padding: 1% 4%;
 }
 
