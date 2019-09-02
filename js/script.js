@@ -10,7 +10,12 @@ eventsApp.userPickEvents = '',
 
 eventsApp.eventsArray = [],
 
-  //Function to make API call to Ticketmaster
+eventsApp.dropdownContent = {
+  city: ['Toronto', 'Montreal', 'Vancouver', 'Calgary'],
+  event: ['Music', 'Sports']
+},
+
+//Function to make API call to Ticketmaster
 eventsApp.getEvents = () => {
   $.ajax({
     method: "GET",
@@ -24,10 +29,70 @@ eventsApp.getEvents = () => {
       segmentName: eventsApp.userPickEvents
     }
   }).then((res) => {
-    console.log("Then result", res);
     eventsApp.displayEvents(res._embedded.events);
   }).catch(() => {
-    swal("Soorrryyyy...", "NO EVENTS THIS DAY!!", "error");  
+    swal("Soorrryyyy...", "NO EVENTS THIS DAY!!", "error");
+  })
+},
+
+//Function to  display dropdown menu
+eventsApp.displayDropdown = () => {
+  //Display the dropdown menu for city selection
+  $('.dropbtn1').on('click', function(){
+    eventsApp.dropdownContent.city.forEach(function (city){
+      $('.dropdownCityContent').append(`<li>${city}</li>`);
+    })
+  })
+  
+  //Display the dropdown menu for type of event selection
+  $('.dropbtn2').on('click', function () {
+    eventsApp.dropdownContent.event.forEach(function (event) {
+      $('.dropdownEventContent').append(`<li>${event}</li>`);
+    })
+  })
+},
+
+//Function to display the calendar plugin 
+eventsApp.calendar = () => {
+  $('.myCalendar').empty();
+  $('.myCalendar').calendar({
+    date: new Date(),
+    autoSelect: false, // false by default
+    select: function (date) {
+
+      //Change of date format to yyyy-mm-dd
+      const formatPickDate = new Date(date);
+      const selectedDate = new Date(formatPickDate.getTime() - (formatPickDate.getTimezoneOffset() * 60000))
+        .toISOString()
+        .split("T")[0];
+
+      const formatTodayDate = new Date();
+      const todayDate = new Date(formatTodayDate.getTime() - (formatTodayDate.getTimezoneOffset() * 60000))
+        .toISOString()
+        .split("T")[0];
+
+      //When button is click move 100vh to next question; do this for each button
+      $('.myCalendar').on('click', function () {
+        $('html, body').animate({
+          scrollIntoView: $('section').offset().top
+        }, 1000)
+      });
+
+      //Condition statements to make sure user pick a city, type of event and specific date
+      if (todayDate > selectedDate) {
+        swal("Oops...", "Event already passed, pick another day!", "error");
+      } else if (eventsApp.userPickCity === '' && eventsApp.userPickEvents === '') {
+        swal("Oops...", "Pick a city and event!", "error");
+      } else if (eventsApp.userPickCity === '') {
+        swal("Oops...", "Pick a city!", "error");
+      } else if (eventsApp.userPickEvents === '') {
+        swal("Oops...", "Pick an event!", "error");
+      } else {
+        eventsApp.userPickDate = selectedDate;
+        eventsApp.getEvents();
+      }
+    },
+    toggle: function (y, m) { }
   })
 },
 
@@ -46,131 +111,104 @@ eventsApp.getUserInput = () => {
     eventsApp.userPickEvents = $(this).text();
     $('.dropbtn2').text(eventsApp.userPickEvents);
   });
-
   eventsApp.calendar();
 },
 
-  //Function to display the events 
-  eventsApp.displayEvents = (result) => {
-    $('.displayEvents').show();
-    $('.displayEvents').empty();
+//Function to display the events 
+eventsApp.displayEvents = (result) => {
+  $('.displayEvents').show();
+  $('.shareButton').show();
+  $('.displayEvents').empty();
 
-    //Stores the API data into an array
-    result.forEach(function (events) {
-      eventsApp.eventsArray.push(events);
-    });
- 
-    if (eventsApp.eventsArray.length < 3) {
-      //Display all  3 events when there is only 3 events
-      eventsApp.eventsArray.forEach(function (events) {
+  //Stores the API data into an array
+  result.forEach(function (events) {
+    eventsApp.eventsArray.push(events);
+  });
 
-        const imageSize = events.images.find(image => image.width === 1024);
-        $('.displayEvents').append(`<div class="displayContents">
-                                 <div class="displayContentsImage">
-                                   <img class="displayContentsImage"src="${imageSize.url} " alt="${events.name} "/>
-                                 </div >
-                                 <div class="displayContentsName">
-                                   <h2>${events.name}</h2>
-                                 </div>
-                                 <div class="displayContentsVenue">
-                                   <p>${events._embedded.venues[0].name}</p>
-                                 </div>
-                                 <div class="displayContentsTime">
-                                   <p>${events.dates.start.localTime}</p>
-                                 </div>
-                                 <div class="displayContentsTickets">
-                                   <a href="${events.url}">get tickets</a>
-                                 </div>
-                               </div > `);
+  if (eventsApp.eventsArray.length < 3) {
+    //Display all  3 events when there is only 3 events
+    eventsApp.eventsArray.forEach(function (events) {
 
-
-      })
-    } else {
-      //Display the first 3 events when there are more than 3 events
-      for (let i = 0; i < 3; i++) {
-        // const index = eventsApp.getRandomEvents();
-        const imageSize = eventsApp.eventsArray[i].images.find(image => image.width === 1024);
-
-        $('.displayEvents').append(`<div class="displayContents">
-                                 <div class="displayContentsImage">
-                                   <img class="displayContentsImage"src="${imageSize.url} " alt="${eventsApp.eventsArray[i].name} "/>
-                                 </div >
-                                 <div class="displayContentsName">
-                                   <h2>${eventsApp.eventsArray[i].name}</h2>
-                                 </div>
-                                 <div class="displayContentsVenue">
-                                   <p>${eventsApp.eventsArray[i]._embedded.venues[0].name}</p>
-                                 </div>
-                                 <div class="displayContentsTime">
-                                   <p>${eventsApp.eventsArray[i].dates.start.localTime}</p>
-                                 </div>
-                                 <div class="displayContentsTickets">
-                                   <a href="${eventsApp.eventsArray[i].url}">get tickets</a>
-                                 </div>
-                                </div > `);
-      }
-    }
-    //Empty the events array
-    eventsApp.eventsArray = [];
-  },
-
-  //Function to display the calendar plugin 
-  eventsApp.calendar = () => {
-    $('.myCalendar').empty();
-    $('.myCalendar').calendar({
-      date: new Date(),
-      autoSelect: false, // false by default
-      select: function (date) {
-
-        //Change of date format to yyyy-mm-dd
-        const formatPickDate = new Date(date);
-        const selectedDate = new Date(formatPickDate.getTime() - (formatPickDate.getTimezoneOffset() * 60000))
-          .toISOString()
-          .split("T")[0];
-
-        const formatTodayDate = new Date();
-        const todayDate = new Date(formatTodayDate.getTime() - (formatTodayDate.getTimezoneOffset() * 60000))
-          .toISOString()
-          .split("T")[0];
-
-        //When button is click move 100vh to next question; do this for each button
-        $(selectedDate).on('click', function () {
-          $('html, body').animate({
-            scrollTop: $(".displayEvents").offset().top
-          }, slow);
-        });
-
-        //Condition statements to make sure user pick a city, type of event and specific date
-        if (todayDate > selectedDate) {
-          swal("Oops...", "Event already passed, pick another day!", "error");
-        } else if (eventsApp.userPickCity === '' && eventsApp.userPickEvents === '') {
-          swal("Oops...", "Pick a city and event!", "error");
-        } else if (eventsApp.userPickCity === '') {
-          swal("Oops...", "Pick a city!", "error");
-        } else if (eventsApp.userPickEvents === '') {
-          swal("Oops...", "Pick an event!", "error");
-        } else {
-          eventsApp.userPickDate = selectedDate;
-          eventsApp.getEvents();
-        }
-      },
-      toggle: function (y, m) { }
+      const imageSize = events.images.find(image => image.width === 1024);
+      $('.displayEvents')
+          .append(`<div class="displayContents">
+                        <div class="displayContentsImage">
+                          <img class="displayContentsImage"src="${imageSize.url} " alt="${events.name} "/>
+                        </div >
+                        <div class="displayContentsName">
+                            <h2>${events.name}</h2>
+                        </div>
+                        <div class="displayContentsVenue">
+                          <p>${events._embedded.venues[0].name}</p>
+                        </div>
+                        <div class="displayContentsTime">
+                          <p>${events.dates.start.localTime}</p>
+                        </div>
+                        <div class="displayContentsTickets">
+                          <a href="${events.url}">get tickets</a>
+                        </div>
+                    </div > `);
     })
-  },
+  } else {
+    //Display the first 3 events when there are more than 3 events
+    for (let i = 0; i < 3; i++) {
+      // const index = eventsApp.getRandomEvents();
+      const imageSize = eventsApp.eventsArray[i].images.find(image => image.width === 1024);
 
-  eventsApp.init = () => {
-    $('.displayEvents').hide();
-
-    //Loads the calendar
-    $('.myCalendar').calendar();
-
-    eventsApp.getUserInput();
-
+      $('.displayEvents')
+        .append(`<div class="displayContents">
+                    <div class="displayContentsImage">
+                      <img class="displayContentsImage"src="${imageSize.url} " alt="${eventsApp.eventsArray[i].name} "/>
+                    </div >
+                    <div class="displayContentsName">
+                      <h2>${eventsApp.eventsArray[i].name}</h2>
+                    </div>
+                    <div class="displayContentsVenue">
+                      <p>${eventsApp.eventsArray[i]._embedded.venues[0].name}</p>
+                    </div>
+                    <div class="displayContentsTime">
+                      <p>${eventsApp.eventsArray[i].dates.start.localTime}</p>
+                    </div>
+                    <div class="displayContentsTickets">
+                      <a href="${eventsApp.eventsArray[i].url}">get tickets</a>
+                    </div>
+                  </div > `);
+    }
   }
+  //Empty the events array
+  eventsApp.eventsArray = [];
+  eventsApp.selectEvent();
+},
+
+//Function to select an event
+eventsApp.selectEvent = () => {
+  $('.displayContents').on('click', function(){
+    $(this).toggleClass('animated')
+            .toggleClass('pulse')
+            .toggleClass('displayContentsSelected');
+  })
+},
+
+eventsApp.shareEvent = () => {
+  $('.displayContents').on('click', function () {
+    const shareThisEvent = this;
+    $('.button').attr(`data-url`, `${shareThisEvent.children[4].firstElementChild.href}`);
+    $('.button').attr(`data-hashtags`, `goingtoanevent, getyourticketstoo`);
+  });
+}
+
+eventsApp.init = () => {
+  $('.displayEvents').hide();
+  $('.shareButton').hide();
+  $('.myCalendar').calendar(); //Loads the calendar
+
+  eventsApp.displayDropdown();
+  eventsApp.getUserInput();
+
+},
 
 //Start of doc ready
 $(document).ready(function () {
   eventsApp.init();
-
 });
 
