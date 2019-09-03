@@ -343,14 +343,14 @@ img {
 footer {
   padding: 0.7% 0;
   text-align: center;
-  background: #13192b;
+  background: #1a2031;
   color: #fff;
   position: absolute;
   width: 100%;
 }
 
 footer p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .mainHeader {
@@ -396,7 +396,7 @@ footer p {
 }
 
 .logoContainer {
-  width: 120px;
+  width: 130px;
   display: block;
   margin-bottom: 2%;
 }
@@ -4963,6 +4963,9 @@ footer p {
   .displayContentsVenue p {
     font-size: 1rem;
   }
+  footer {
+    margin-top: -1%;
+  }
 }
 
 @media only screen and (max-width: 1115px) {
@@ -5062,6 +5065,7 @@ footer p {
   .container {
     width: 80%;
     margin: 15% 0;
+    margin-top: 7%;
   }
   .headerContents h1 {
     line-height: 45px;
@@ -5079,6 +5083,18 @@ footer p {
   }
 }
 
+@media only screen and (max-width: 642px) {
+  footer {
+    margin-top: -3%;
+  }
+}
+
+@media only screen and (max-width: 505px) {
+  footer {
+    margin-top: -5%;
+  }
+}
+
 @media only screen and (max-width: 450px) {
   .container {
     width: 90%;
@@ -5091,7 +5107,7 @@ footer p {
     background-image: url("../images/headerBackground414px.jpg");
   }
   .logoContainer {
-    width: 70px;
+    width: 100px;
   }
   .headerContents h1 {
     font-size: 1.5rem;
@@ -5214,7 +5230,7 @@ footer p {
     margin: 20% 1% 8% 1%;
   }
   footer {
-    margin-top: -2%;
+    margin-top: -7%;
   }
 }
 

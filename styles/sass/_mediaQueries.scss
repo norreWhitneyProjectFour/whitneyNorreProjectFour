@@ -31,6 +31,10 @@
   .displayContentsVenue p {
     font-size: 1rem;
   }
+
+   footer {
+    margin-top: -1%;
+  }
 }
 
 @media only screen and (max-width: 1115px){
@@ -135,6 +139,7 @@
   .container {
     width: 80%;
     margin: 15% 0;
+    margin-top: 7%;
   }
   .headerContents h1 {
    line-height: 45px;
@@ -155,6 +160,18 @@
   }
 }
 
+@media only screen and (max-width: 642px){ 
+  footer {
+    margin-top: -3%;
+  }
+}
+
+@media only screen and (max-width: 505px){ 
+  footer {
+    margin-top: -5%;
+  }
+}
+
 @media only screen and (max-width: 450px){ 
 
    .container {
@@ -168,7 +185,7 @@
       background-image: url('../images/headerBackground414px.jpg');
   }
   .logoContainer {
-    width: 70px;
+    width: 100px;
   }
   .headerContents h1 {
     font-size: 1.5rem;
@@ -314,7 +331,7 @@
   }
 
   footer {
-    margin-top: -2%;
+    margin-top: -7%;
   }
 }
 

@@ -12,13 +12,17 @@
     type='text/css' media='all' />
   <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <link type="image/png" href="favicon/cevntLogo.svg" rel="icon">
 </head>
 
 <body>
+
+  <!-- SKIP TO MAIN CONTENT BUTTON -->
   <a href="#mainContent" class="skipLink">Skip to main content.</a>
-  <div class="wrapperContainer">
-    <!-- HEADER STARTS HERE -->
-    <header id="mainContent" class="mainHeader">
+
+  <!-- HEADER STARTS HERE -->
+  <header id="mainContent" class="mainHeader">
+    <div class="wrapperContainer">
       <div class="headerContents">
         <div class="logoContainer">
           <img class="logo" src="images/cevntLogo.svg" alt="cevent logo">
@@ -41,6 +45,7 @@
           </div>
         </div>
       </div>
+
       <!-- Calendar plugin from https://www.jqueryscript.net/time-clock/responsive-nao-calendar.html -->
       <div class="jquery-script-clear"></div>
       <div class="calendarContainer">
@@ -49,32 +54,31 @@
         </div>
       </div>
 
-    </header>
+  </header>
 
-    <!-- MAIN STARTS HERE -->
-    <main>
+  <!-- MAIN STARTS HERE -->
+  <main>
 
-      <!-- Section to display events -->
-      <section>
-        <!-- Dynamic content goes here -->
-        <div class="displayEvents"></div>
-        <div class="shareEvents"></div>
-      </section>
-      <div class="backToTop">
-        <a href="#">back to dates <i class="fas fa-arrow-up"></i></a>
-      </div>
+    <!-- Section to display events -->
+    <section>
+      <!-- Dynamic content goes here -->
+      <div class="displayEvents"></div>
+      <div class="shareEvents"></div>
+    </section>
+    <div class="backToTop">
+      <a href="#">back to dates <i class="fas fa-arrow-up"></i></a>
+    </div>
 
-    </main>
+  </main>
 
-    <!-- FOOTER STARTS HERE -->
-    <footer>
-      <p>Created by Norre & Whitney © 2019 </p>
-    </footer>
+  <!-- FOOTER STARTS HERE -->
+  <footer>
+    <p>Created by Norre & Whitney © 2019 </p>
+  </footer>
 
   </div>
 
-
-
+  <!-- JS, JQUERY NAO CALENDAR -->
   <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
