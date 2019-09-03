@@ -303,6 +303,12 @@ img {
   width: 100%;
 }
 
+.nao-month td {
+  padding: 15px 1px;
+  -webkit-box-shadow: 0 0 0 0.5px #ffffff, 0 0 3px 5px #3a97f9;
+          box-shadow: 0 0 0 0.5px #ffffff, 0 0 3px 5px #3a97f9;
+}
+
 :focus {
   -webkit-box-shadow: 0 0 0 0.5px #ffffff, 0 0 3px 5px #3a97f9;
           box-shadow: 0 0 0 0.5px #ffffff, 0 0 3px 5px #3a97f9;
