@@ -33,7 +33,6 @@ eventsApp.getEvents = () => {
   }).catch(() => {
     swal("Soorrryyyy...", "NO EVENTS THIS DAY!!", "error");
     $('section').hide();
-
   })
 },
 
@@ -85,7 +84,7 @@ eventsApp.calendar = () => {
         swal("Oops...", "Pick an event!", "warning");
       } else {
         eventsApp.userPickDate = selectedDate;
-        $('ripple-element').on('click', function () {
+        $('td').on('click', function () {
           $('html, body').animate({
             scrollTop: $('.displayEvents').offset().top
           }, 1000);
