@@ -3,7 +3,6 @@
   display: flex;
   background: #121726;
   height: 110vh;
-  // padding-top: 5%;
   padding-bottom: 20%;
 
   h2 {
@@ -26,7 +25,7 @@
   cursor: pointer;
   margin: 100px 2%;
   width: 50%;
-  height: 99%;
+  height: 111%;
   border-radius: 10px;
   background: $primaryColor;
   box-shadow: 5px 5px 25px #183555;
@@ -94,7 +93,6 @@
       padding: 1% 4%;
       &:hover {
           color: $tertiaryColor;
-      }
-      
+      }  
   }
 }  

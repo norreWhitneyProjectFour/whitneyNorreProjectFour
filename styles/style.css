@@ -326,8 +326,8 @@ img {
 }
 
 .backToTop {
-  margin-top: -21%;
-  padding-bottom: 16.9%;
+  margin-top: -19%;
+  padding-bottom: 14.9%;
   text-align: center;
 }
 
@@ -4844,7 +4844,7 @@ footer p {
   cursor: pointer;
   margin: 100px 2%;
   width: 50%;
-  height: 99%;
+  height: 111%;
   border-radius: 10px;
   background: #121726;
   -webkit-box-shadow: 5px 5px 25px #183555;
