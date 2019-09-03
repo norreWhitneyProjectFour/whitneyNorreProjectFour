@@ -32,6 +32,8 @@ eventsApp.getEvents = () => {
     eventsApp.displayEvents(res._embedded.events);
   }).catch(() => {
     swal("Soorrryyyy...", "NO EVENTS THIS DAY!!", "error");
+    $('section').hide();
+
   })
 },
 
@@ -55,6 +57,7 @@ eventsApp.displayDropdown = () => {
 //Function to display the calendar plugin 
 eventsApp.calendar = () => {
   $('.myCalendar').empty();
+
   $('.myCalendar').calendar({
     date: new Date(),
     autoSelect: false, // false by default
@@ -75,20 +78,21 @@ eventsApp.calendar = () => {
       if (todayDate > selectedDate) {
         swal("Oops...", "Event already passed, pick another day!", "error");
       } else if (eventsApp.userPickCity === '' && eventsApp.userPickEvents === '') {
-        swal("Oops...", "Pick a city and event!", "error");
+        swal("Oops...", "Pick a city and event!", "warning");
       } else if (eventsApp.userPickCity === '') {
-        swal("Oops...", "Pick a city!", "error");
+        swal("Oops...", "Pick a city!", "warning");
       } else if (eventsApp.userPickEvents === '') {
-        swal("Oops...", "Pick an event!", "error");
+        swal("Oops...", "Pick an event!", "warning");
       } else {
         eventsApp.userPickDate = selectedDate;
-        //When button is click move 100vh to next question; do this for each button
-        $('td').on('click', function () {
+        $('ripple-element').on('click', function () {
           $('html, body').animate({
-            scrollTop: $('section').offset().top
-          }, 'slow')
+            scrollTop: $('.displayEvents').offset().top
+          }, 1000);
         });
+
         eventsApp.getEvents();
+
       }
     },
     toggle: function (y, m) { }
@@ -211,15 +215,8 @@ eventsApp.init = () => {
   eventsApp.displayDropdown();
   eventsApp.getUserInput();
 
-},
-
-
-//Start of doc ready
-$(document).ready(function () {
-  eventsApp.init();
-
   //When button is click move 100vh to next question; do this for each button
-  $('.ripple-element').on('click', function () {
+  $('ripple-element').on('click', function () {
     $('html, body').animate({
       scrollTop: $('.displayEvents').offset().top
     }, 1000);
@@ -231,6 +228,10 @@ $(document).ready(function () {
       scrollTop: $('.mainHeader').offset().top
     }, 1000);
   });
+},
 
+//Start of doc ready
+$(document).ready(function () {
+  eventsApp.init();
 });
 
