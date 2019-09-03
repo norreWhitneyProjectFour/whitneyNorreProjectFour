@@ -4932,19 +4932,19 @@ footer p {
   color: #ffde7d;
 }
 
-@media only screen and (max-width: 1480px) {
+@media only screen and (max-width: 1480px) and (orientation: portrait) {
   .displayContents {
     height: 106%;
   }
 }
 
-@media only screen and (max-width: 1389px) {
+@media only screen and (max-width: 1389px) and (orientation: portrait) {
   .displayContents {
     height: 90%;
   }
 }
 
-@media only screen and (max-width: 1165px) {
+@media only screen and (max-width: 1165px) and (orientation: portrait) {
   .mainHeader {
     background-position: 87% -10px;
     background-image: url("../images/headerBackground1165px.jpg");
@@ -4979,7 +4979,7 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 925px) {
+@media only screen and (max-width: 925px) and (orientation: portrait) {
   .mainHeader {
     background-image: url("../images/headerMainImage925px.jpg");
   }
@@ -5034,7 +5034,7 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 800px) and (orientation: portrait) {
   .mainHeader {
     background-image: url("../images/headerBackground800px.jpg");
   }
@@ -5052,7 +5052,7 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 785px) {
+@media only screen and (max-width: 785px) and (orientation: portrait) {
   .mainHeader {
     background-image: url("../images/headerMainImage785px.jpg");
   }
@@ -5061,7 +5061,7 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) and (orientation: portrait) {
   .container {
     width: 80%;
     margin: 15% 0;
@@ -5083,26 +5083,26 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 642px) {
+@media only screen and (max-width: 642px) and (orientation: portrait) {
   footer {
     margin-top: -3%;
   }
 }
 
-@media only screen and (max-width: 505px) {
+@media only screen and (max-width: 505px) and (orientation: portrait) {
   footer {
     margin-top: -5%;
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 450px) and (orientation: portrait) {
   .container {
     width: 90%;
     margin-top: 11%;
   }
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 414px) and (orientation: portrait) {
   .mainHeader {
     background-image: url("../images/headerBackground414px.jpg");
   }
@@ -5144,7 +5144,7 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 375px) and (orientation: portrait) {
   .mainHeader {
     background-image: url("../images/headerBackground375px.jpg");
   }
@@ -5187,7 +5187,7 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 360px) and (orientation: portrait) {
   .mainHeader {
     background-image: url("../images/headerBackground360px.jpg");
   }
@@ -5234,7 +5234,7 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 355px) {
+@media only screen and (max-width: 355px) and (orientation: portrait) {
   .logoContainer {
     width: 90px;
   }
@@ -5273,7 +5273,7 @@ footer p {
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 320px) and (orientation: portrait) {
   .mainHeader {
     background-image: url("../images/headerBackground320px.jpg");
   }
