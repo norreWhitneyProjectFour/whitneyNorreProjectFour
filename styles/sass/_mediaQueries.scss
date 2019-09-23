@@ -41,15 +41,10 @@
    .displayContents {
     height: 85%;
   }
-
-  .backToTop {
-    margin-top: -12%;
-    padding-bottom: 7.9%;
-    text-align: center;
-  }
 }
 
 @media only screen and (max-width: 925px){
+
   .mainHeader {
       background-image: url('../images/headerMainImage925px.jpg');
   }
@@ -85,18 +80,12 @@
 
   .displayEvents {
     flex-direction: column;
-    height: 250vh;
   }
 
   .displayContents {
     margin: 5% auto;
     width: 63%;
-  }
-
-  .backToTop {
-    margin-top: -17%;
-    padding-bottom: 10.9%;
-    text-align: center;
+    padding-bottom: 10%;
   }
 }
   
@@ -114,9 +103,6 @@
     padding-bottom: 10.9%;
   }
 
-  .displayEvents {
-    height: 220vh;
-  }
   .displayContents {
     height: 32%;
   }
@@ -208,7 +194,6 @@
 
   .displayEvents {
     flex-direction: column;
-    height: 230vh;
   }
 
   .displayContents {
@@ -265,7 +250,6 @@
 
   .displayEvents {
     flex-direction: column;
-    height: 260vh;
   }
 
   .backToTop {
@@ -317,9 +301,6 @@
     width: 83%;
   }
 
-  .displayEvents {
-    height: 230vh;
-  }
 
   .backToTop {
     margin-top: -45%;
@@ -345,7 +326,7 @@
       background-image: url('../images/headerBackground355px.jpg');
   }
   .headerContents h1 {
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     line-height: 2.2rem;
     padding-top: 4%;
     line-height: 30px;
@@ -374,14 +355,17 @@
     width: 83%;
   }
 
-  .backToTop {
-    margin-top: -65%;
-    padding-bottom: 63.9%;
-    text-align: center;
+  .displayContentsName h2 {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+  }
+
+  .displayContentsVenue p  {
+    font-size: 1.2rem;
   }
 
   .shareEvents button {
-    margin: 20% 1% 28% 1%;
+    margin: 0% 7% 28% 7%;
   }
 
   footer {

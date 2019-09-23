@@ -23,17 +23,12 @@
     color: #fff;
     justify-content: center;
     text-align: center;
-    font-size: 2.8rem;
     letter-spacing: 1px;
     padding: 0 2%;
-    
+    font-size: 2.7rem; 
+    line-height: 2.9rem;
+    padding: 0 30%; 
   }
-}
-
-.logoContainer {
-  width: 130px;
-  display: block;
-  margin-bottom: 2%;
 }
 
 .dropDownContainer {
@@ -43,14 +38,17 @@
   margin-top: 2%;
 
   h2  {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     color: #fff;
     padding: 2% 2%;
     text-shadow: 1px 1px 5px #808080;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: capitalize;
     padding-right: 4%;
     line-height: 40px;
+    padding-right: 5%;
+    line-height: 1.9rem;
+    // text-align: center;
   }
 }
 
@@ -60,8 +58,8 @@
 }
 
 //Button inspired by https://www.w3schools.com/
-.dropbtn1,
-.dropbtn2 {
+.dropBtn1,
+.dropBtn2 {
   background-color: #0A54A8;
   color: white;
   padding: 16px;
@@ -74,11 +72,11 @@
   text-transform: capitalize;
 }
 
-.dropbtn1{
+.dropBtn1{
   width: 170px;
 }
 
-.dropbtn2 {
+.dropBtn2 {
   width: 170px;
   white-space: nowrap;
 }
@@ -89,6 +87,7 @@
   position: relative;
   z-index: 10;
   margin: 0 2%;
+  margin-top: 3%;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -121,7 +120,7 @@
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdownCity:hover .dropbtn1,
-.dropdownEvent:hover .dropbtn2 {
+.dropdownCity:hover .dropBtn1,
+.dropdownEvent:hover .dropBtn2 {
   background-color: $secondaryColor;
 }

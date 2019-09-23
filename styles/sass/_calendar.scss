@@ -2,13 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2%;
 }
 
 .container{
   margin-top: 1%;
   width: 50%;
   height: 200%;
-  background: rgba(255, 255, 255, 0.7);
+  background: #fff;
+  opacity: 0.6;
   border-radius: 20px;
 }
 
@@ -2703,7 +2705,8 @@
 	padding: 8px;
 	cursor: pointer;
 	background: transparent;
-	font-size: 16px;
+  font-size: 16px;
+  display: none;
 }
 
 .nao-month .month-head div {
@@ -2717,7 +2720,7 @@
 
 .nao-month th:first-child,
 .nao-month th:last-child{
-  color: #f6416c;
+  color: #000;
 }
 
 .nao-month .month-head button {

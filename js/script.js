@@ -39,14 +39,14 @@ eventsApp.userPickDate = '',
   //Function to  display dropdown menu
   eventsApp.displayDropdown = () => {
     //Display the dropdown menu for city selection
-    $('.dropbtn1').one('mouseover', function () {
+    $('.dropBtn1').one('mouseover', function () {
       eventsApp.dropdownContent.city.forEach(function (city) {
         $('.dropdownCityContent').append(`<li>${city}</li>`);
       })
     })
 
     //Display the dropdown menu for type of event selection
-    $('.dropbtn2').one('mouseover', function () {
+    $('.dropBtn2').one('mouseover', function () {
       eventsApp.dropdownContent.event.forEach(function (event) {
         $('.dropdownEventContent').append(`<li>${event}</li>`);
       })
@@ -104,14 +104,14 @@ eventsApp.userPickDate = '',
     $('.dropdownCityContent').on('click', 'li', function (e) {
       e.stopPropagation();
       eventsApp.userPickCity = $(this).text();
-      $('.dropbtn1').text(eventsApp.userPickCity);
+      $('.dropBtn1').text(eventsApp.userPickCity);
     });
 
     //Gets the value of selected event
     $('.dropdownEventContent').on('click', 'li', function (e) {
       e.stopPropagation();
       eventsApp.userPickEvents = $(this).text();
-      $('.dropbtn2').text(eventsApp.userPickEvents);
+      $('.dropBtn2').text(eventsApp.userPickEvents);
     });
     eventsApp.calendar();
   },
@@ -141,14 +141,17 @@ eventsApp.userPickDate = '',
                         <div class="displayContentsName">
                             <h2>${events.name}</h2>
                         </div>
-                        <div class="displayContentsVenue">
-                          <p>${events._embedded.venues[0].name}</p>
-                        </div>
-                        <div class="displayContentsTime">
-                          <p>${events.dates.start.localTime}</p>
-                        </div>
-                        <div class="displayContentsTickets">
-                          <a href="${events.url}">get tickets</a>
+                        <div className="eventContent">
+                          <div class="displayContentsVenue">
+                            <p>${events._embedded.venues[0].name}</p>
+                          </div>
+                          <div class="displayContentsTime">
+                            <p>${events.dates.start.localTime}</p>
+                          </div>
+                          <div class="displayContentsTickets">
+                            <a href="${events.url}">get tickets</a>
+                          </div>
+                          
                         </div>
                     </div >`);
       })

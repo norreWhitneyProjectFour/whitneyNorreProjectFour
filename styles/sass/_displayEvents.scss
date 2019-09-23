@@ -2,12 +2,12 @@
 .displayEvents {
   display: flex;
   background: #121726;
-  height: 110vh;
-  padding-bottom: 20%;
+  // height: 100vh;
+  padding-top: 10%;
+  padding-bottom: 10%;
 
   h2 {
     font-size: 1.5rem;
-    padding: 0% 1%;
     padding-top: 7%;
     line-height: 1.5rem;
     color: #fff;
@@ -40,6 +40,11 @@
 }
 //DYNAMTIC CONTENT STYLES
 
+.eventContent {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid red;
+}
 .displayContentsImage {
   height: 300px; 
   object-fit: cover;
@@ -56,6 +61,7 @@
 .displayContentsVenue {
   font-size: 1.2rem;
   padding: 0 5%;
+  padding-top: 5%;
 }
 
 .displayContentsTime {
@@ -67,15 +73,15 @@
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
-  padding: 5% 5%;
+  padding: 3% 3%;
   text-transform: capitalize;
   margin: 2%;
   a {
     text-decoration: none;
     color: $secondaryColor;
-    padding-bottom: 15%;
     &:hover {
       color: #ffde7d;
+      background: $secondaryColor;
     }
   }
 }
@@ -92,7 +98,9 @@
       margin: 0 1% 8% 1%;
       padding: 1% 4%;
       &:hover {
-          color: $tertiaryColor;
+          color: snow;
+          background: $secondaryColor;
+
       }  
   }
 }  
